@@ -1,0 +1,13 @@
+\section{Method}
+OpenQA aims to answer factoid questions without pre-specified domains. We assume that a large collection of documents $C$ (i.e., Wikipedia) are given as the resource to answer the questions and a retriever-reader architecture is used to tackle the task, where the retriever retrieves a small subset of the documents $D \subset C$ and the reader reads the documents D to extract (or generate) an answer. Our goal is to improve the effectiveness and efficiency of the retriever and consequently improve the performance of the reader.
+
+In this section, we propose an optimized training approach to dense passage retrieval for open-domain QA, namely RocketQA. We first introduce the background of the dual-encoder architecture, and then describe the three novel training strategies in RocketQA. Lastly, we present the whole training procedure of RocketQA.
+\subsection*{2.1 Retriever}
+
+\subsection*{2.2 Reader}
+
+\subsection*{2.3 Reranker}
+
+Given an initially retrieved passage list $R$ and topN predictions of the reader $A^{[:N]}$,RIDER forms a reranked passage list $R'$ as follows. RIDER scans R from the beginning of the list and appends to $R'$ every passage  $p \in R$ if $p$ contains any reader prediction $a\in A^{[:N]}$ after string normalization (removing articles and punctuation) and tokenization.
+
+Then, the remaining passages are appended to $R'$ according to their original order. Intuitively, if the reader prediction is perfect, the retrieval accuracy after reranking is guaranteed to be optimal. Specifically, if the reader prediction is correct, it is guaranteed that the retrieval accuracy after reranking is better, since RIDER moves all passages containing the correct answer to the top (or at least the same if those passages are all at the top before reranking). If the reader prediction is wrong, RIDER could still be better if the predicted answer co-occurs with the correct answer, the same, or worse if the predicted answer is misleading. In practice, if the reader performs reasonably well, RIDER is also likely to rerank passages well. Overall, we observe quantitatively that RIDER leads to consistent gains in terms of both retrieval accuracy and QA performance without refining the retriever (reader) or even any training itself despite the noise in reader predictions.

@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\footnotesize
+    \centering
+    \begin{tabular}{lSSSSSSS}
+    \toprule
+    \multirow{2}{*}{\textbf{System}}         & {\textbf{FEV}}  & {\textbf{T-REx}} & {\textbf{zsRE}} & {\textbf{NQ}}   & {\textbf{HoPo}} & {\textbf{TQA}}  & {\textbf{WoW}}  \\ 
+                   & {\textsc{k.-acc}}  & {\textsc{k.-acc}}   & {\textsc{k.-acc}}  & {\textsc{k.-em}}   & {\textsc{k.-em}}   & {\textsc{k.-em}}   & {\textsc{k.-f1}}   \\ \midrule
+
+KGI \citep{glass-etal-2021-robust} & 64.4 & \bfseries 69.1 & 72.3 & 36.4 & {-} & 42.9 & 10.4 \\
+Hindsight \citep{paranjape-etal-2021-hindsight} & {-} & {-} & {-} & {-} & {-} & {-} & \bfseries 13.4 \\
+RAG \citep{petroni-etal-2021-kilt} & 53.5 & 23.1 & 36.8 & 32.7 & 3.2 & 38.1 & 8.8 \\
+MT-DPR+BART \citep{maillard-etal-2021-multi} & 63.9 & {-} & 50.6 & 29.1 & 9.5 & 42.4 & 5.9 \\
+MT-DPR-WEB+FiD \citep{piktus-etal-2021-web} & 65.7 & 64.6 & 67.2 & 35.3 & 11.7 & 45.6 & 7.6 \\
+\midrule
+\system{}+FiD (LM+FM) & 67.0 & 60.1 & \bfseries 73.2 & 32.8 & 15.1 & 47.7 & 11.0 \\
+\system{}+FiD (LM+FM, intersective) & \bfseries 71.3 & 54.6 & 69.2 & \bfseries 38.8 & \bfseries 18.1 & \bfseries 50.6 & 11.6 \\
+\bottomrule
+\end{tabular}
+\caption{KILT scores on the KILT test set(s). In KILT-scores an instance is considered correct if both the predicted page and the answer match the ground truth. Metrics are accuracy (FEVER, T-REx, zero-shot RE), exact match (Natural Questions, HotpotQA, TriviaQA), or F1 (Wizard of Wikipedia). Best in bold. Results are taken from the \texttt{eval.ai} KILT leaderboard.}
+    \label{tab:kilt-test-kilt-scores}
+\end{table*}

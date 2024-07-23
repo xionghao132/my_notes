@@ -1,0 +1,553 @@
+\begin{thebibliography}{67}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Artetxe et~al.(2021)Artetxe, Bhosale, Goyal, Mihaylov, Ott, Shleifer,
+  Lin, Du, Iyer, Pasunuru et~al.}]{artetxe2021efficient}
+Mikel Artetxe, Shruti Bhosale, Naman Goyal, Todor Mihaylov, Myle Ott, Sam
+  Shleifer, Xi~Victoria Lin, Jingfei Du, Srinivasan Iyer, Ramakanth Pasunuru,
+  et~al. 2021.
+\newblock Efficient large scale language modeling with mixtures of experts.
+\newblock \emph{arXiv preprint arXiv:2112.10684}.
+
+\bibitem[{Bai et~al.(2020)Bai, Li, Wang, Zhang, Shang, Xu, Wang, Wang, and
+  Liu}]{bai-etal-2020-sparterm}
+Yang Bai, Xiaoguang Li, Gang Wang, Chaoliang Zhang, Lifeng Shang, Jun Xu,
+  Zhaowei Wang, Fangshan Wang, and Qun Liu. 2020.
+\newblock \href {http://arxiv.org/abs/2010.00768} {Sparterm: Learning
+  term-based sparse representation for fast text retrieval}.
+\newblock \emph{CoRR}, abs/2010.00768.
+
+\bibitem[{Brown et~al.(2020)Brown, Mann, Ryder, Subbiah, Kaplan, Dhariwal,
+  Neelakantan, Shyam, Sastry, Askell et~al.}]{brown2020language}
+Tom Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared~D Kaplan, Prafulla
+  Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell,
+  et~al. 2020.
+\newblock Language models are few-shot learners.
+\newblock \emph{Advances in neural information processing systems},
+  33:1877--1901.
+
+\bibitem[{Burrows and Wheeler(1994)}]{Burrows94ablock-sorting}
+M.~Burrows and D.~J. Wheeler. 1994.
+\newblock A block-sorting lossless data compression algorithm.
+\newblock Technical report.
+
+\bibitem[{Chen et~al.(2017)Chen, Fisch, Weston, and
+  Bordes}]{DBLP:journals/corr/ChenFWB17}
+Danqi Chen, Adam Fisch, Jason Weston, and Antoine Bordes. 2017.
+\newblock \href {http://arxiv.org/abs/1704.00051} {Reading wikipedia to answer
+  open-domain questions}.
+\newblock \emph{CoRR}, abs/1704.00051.
+
+\bibitem[{Dai and Callan(2019)}]{dai-callan-2019-context}
+Zhuyun Dai and Jamie Callan. 2019.
+\newblock \href {http://arxiv.org/abs/1910.10687} {Context-aware
+  sentence/passage term importance estimation for first stage retrieval}.
+\newblock \emph{CoRR}, abs/1910.10687.
+
+\bibitem[{Dai and Callan(2020)}]{dai-callan-2020-context}
+Zhuyun Dai and Jamie Callan. 2020.
+\newblock \href {https://doi.org/10.1145/3366423.3380258} {Context-aware
+  document term weighting for ad-hoc search}.
+\newblock In \emph{{WWW} '20: The Web Conference 2020, Taipei, Taiwan, April
+  20-24, 2020}, pages 1897--1907. {ACM} / {IW3C2}.
+
+\bibitem[{De~Cao et~al.(2021{\natexlab{a}})De~Cao, Aziz, and
+  Titov}]{de-cao-etal-2021-highly}
+Nicola De~Cao, Wilker Aziz, and Ivan Titov. 2021{\natexlab{a}}.
+\newblock \href {https://doi.org/10.18653/v1/2021.emnlp-main.604} {Highly
+  parallel autoregressive entity linking with discriminative correction}.
+\newblock In \emph{Proceedings of the 2021 Conference on Empirical Methods in
+  Natural Language Processing}, pages 7662--7669, Online and Punta Cana,
+  Dominican Republic. Association for Computational Linguistics.
+
+\bibitem[{De~Cao et~al.(2021{\natexlab{b}})De~Cao, Izacard, Riedel, and
+  Petroni}]{decao-etal-2021-autoregressive}
+Nicola De~Cao, Gautier Izacard, Sebastian Riedel, and Fabio Petroni.
+  2021{\natexlab{b}}.
+\newblock \href {https://openreview.net/forum?id=5k8F6UU39V} {Autoregressive
+  entity retrieval}.
+\newblock In \emph{9th International Conference on Learning Representations,
+  {ICLR} 2021, Virtual Event, Austria, May 3-7, 2021}. OpenReview.net.
+
+\bibitem[{De~Cao et~al.(2022)De~Cao, Wu, Popat, Artetxe, Goyal, Plekhanov,
+  Zettlemoyer, Cancedda, Riedel, and Petroni}]{de2022multilingual}
+Nicola De~Cao, Ledell Wu, Kashyap Popat, Mikel Artetxe, Naman Goyal, Mikhail
+  Plekhanov, Luke Zettlemoyer, Nicola Cancedda, Sebastian Riedel, and Fabio
+  Petroni. 2022.
+\newblock Multilingual autoregressive entity linking.
+\newblock \emph{TACL}.
+
+\bibitem[{Dinan et~al.(2019)Dinan, Roller, Shuster, Fan, Auli, and
+  Weston}]{dinan2018wizard}
+Emily Dinan, Stephen Roller, Kurt Shuster, Angela Fan, Michael Auli, and Jason
+  Weston. 2019.
+\newblock Wizard of wikipedia: Knowledge-powered conversational agents.
+\newblock \emph{Proceedings of the International Conference on Learning
+  Representations (ICLR)}.
+
+\bibitem[{Elsahar et~al.(2018)Elsahar, Vougiouklis, Remaci, Gravier, Hare,
+  Simperl, and Laforest}]{elsahar2019t}
+Hady Elsahar, Pavlos Vougiouklis, Arslen Remaci, Christophe Gravier, Jonathon
+  Hare, Elena Simperl, and Frederique Laforest. 2018.
+\newblock T-rex: A large scale alignment of natural language with knowledge
+  base triples.
+\newblock \emph{LREC}.
+
+\bibitem[{Ferragina and Manzini(2000)}]{ferragina-manzini-2000-opportunistic}
+P.~Ferragina and G.~Manzini. 2000.
+\newblock \href {https://doi.org/10.1109/SFCS.2000.892127} {Opportunistic data
+  structures with applications}.
+\newblock In \emph{Proceedings 41st Annual Symposium on Foundations of Computer
+  Science}, pages 390--398.
+
+\bibitem[{Formal et~al.(2021{\natexlab{a}})Formal, Lassance, Piwowarski, and
+  Clinchant}]{formal-etal-2021-spladev2}
+Thibault Formal, Carlos Lassance, Benjamin Piwowarski, and St{\'{e}}phane
+  Clinchant. 2021{\natexlab{a}}.
+\newblock \href {http://arxiv.org/abs/2109.10086} {{SPLADE} v2: Sparse lexical
+  and expansion model for information retrieval}.
+\newblock \emph{CoRR}, abs/2109.10086.
+
+\bibitem[{Formal et~al.(2021{\natexlab{b}})Formal, Piwowarski, and
+  Clinchant}]{formal-etal-2021-splade}
+Thibault Formal, Benjamin Piwowarski, and St{\'{e}}phane Clinchant.
+  2021{\natexlab{b}}.
+\newblock \href {https://doi.org/10.1145/3404835.3463098} {{SPLADE:} sparse
+  lexical and expansion model for first stage ranking}.
+\newblock In \emph{{SIGIR} '21: The 44th International {ACM} {SIGIR} Conference
+  on Research and Development in Information Retrieval, Virtual Event, Canada,
+  July 11-15, 2021}, pages 2288--2292. {ACM}.
+
+\bibitem[{Gao et~al.(2021)Gao, Dai, and Callan}]{gao-etal-2021-coil}
+Luyu Gao, Zhuyun Dai, and Jamie Callan. 2021.
+\newblock \href {https://doi.org/10.18653/v1/2021.naacl-main.241} {{COIL}:
+  Revisit exact lexical match in information retrieval with contextualized
+  inverted list}.
+\newblock In \emph{Proceedings of the 2021 Conference of the North American
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies}, pages 3030--3042, Online. Association for Computational
+  Linguistics.
+
+\bibitem[{Gerlach(2007)}]{Gerlach2007DynamicFF}
+Wolfgang Gerlach. 2007.
+\newblock Dynamic fm-index for a collection of texts with application to
+  space-efficient construction of the compressed suffix array diplomarbeit im
+  fach.
+\newblock Master's thesis, University of Bielefeld.
+
+\bibitem[{Glass et~al.(2021)Glass, Rossiello, Chowdhury, and
+  Gliozzo}]{glass-etal-2021-robust}
+Michael Glass, Gaetano Rossiello, Md~Faisal~Mahbub Chowdhury, and Alfio
+  Gliozzo. 2021.
+\newblock \href {https://doi.org/10.18653/v1/2021.emnlp-main.148} {Robust
+  retrieval augmented generation for zero-shot slot filling}.
+\newblock In \emph{Proceedings of the 2021 Conference on Empirical Methods in
+  Natural Language Processing}, pages 1939--1949, Online and Punta Cana,
+  Dominican Republic. Association for Computational Linguistics.
+
+\bibitem[{Grossi et~al.(2003)Grossi, Gupta, and
+  Vitter}]{grossi-etal-2003-highorder}
+Roberto Grossi, Ankur Gupta, and Jeffrey~Scott Vitter. 2003.
+\newblock High-order entropy-compressed text indexes.
+\newblock In \emph{Proceedings of the Fourteenth Annual ACM-SIAM Symposium on
+  Discrete Algorithms}, SODA '03, page 841–850, USA. Society for Industrial
+  and Applied Mathematics.
+
+\bibitem[{Izacard and Grave(2021)}]{izacard-grave-2021-leveraging}
+Gautier Izacard and Edouard Grave. 2021.
+\newblock \href {https://doi.org/10.18653/v1/2021.eacl-main.74} {Leveraging
+  passage retrieval with generative models for open domain question answering}.
+\newblock In \emph{Proceedings of the 16th Conference of the European Chapter
+  of the Association for Computational Linguistics: Main Volume}, pages
+  874--880, Online. Association for Computational Linguistics.
+
+\bibitem[{Ji et~al.(2022)Ji, Lee, Frieske, Yu, Su, Xu, Ishii, Bang, Madotto,
+  and Fung}]{Ji2022SurveyOH}
+Ziwei Ji, Nayeon Lee, Rita Frieske, Tiezheng Yu, Dan Su, Yan Xu, Etsuko Ishii,
+  Yejin Bang, Andrea Madotto, and Pascale Fung. 2022.
+\newblock Survey of hallucination in natural language generation.
+\newblock \emph{ArXiv}, abs/2202.03629.
+
+\bibitem[{Joshi et~al.(2017)Joshi, Choi, Weld, and
+  Zettlemoyer}]{joshi2017triviaqa}
+Mandar Joshi, Eunsol Choi, Daniel Weld, and Luke Zettlemoyer. 2017.
+\newblock \href {https://doi.org/10.18653/v1/P17-1147} {{T}rivia{QA}: A large
+  scale distantly supervised challenge dataset for reading comprehension}.
+\newblock In \emph{Proceedings of the 55th Annual Meeting of the Association
+  for Computational Linguistics (Volume 1: Long Papers)}, pages 1601--1611,
+  Vancouver, Canada. Association for Computational Linguistics.
+
+\bibitem[{Karpukhin et~al.(2020)Karpukhin, Oguz, Min, Lewis, Wu, Edunov, Chen,
+  and Yih}]{karpukhin-etal-2020-dense}
+Vladimir Karpukhin, Barlas Oguz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey
+  Edunov, Danqi Chen, and Wen-tau Yih. 2020.
+\newblock \href {https://doi.org/10.18653/v1/2020.emnlp-main.550} {Dense
+  passage retrieval for open-domain question answering}.
+\newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 6769--6781, Online. Association
+  for Computational Linguistics.
+
+\bibitem[{Kingma and Ba(2015)}]{DBLP:journals/corr/KingmaB14}
+Diederik~P. Kingma and Jimmy Ba. 2015.
+\newblock \href {http://arxiv.org/abs/1412.6980} {Adam: {A} method for
+  stochastic optimization}.
+\newblock In \emph{3rd International Conference on Learning Representations,
+  {ICLR} 2015, San Diego, CA, USA, May 7-9, 2015, Conference Track
+  Proceedings}.
+
+\bibitem[{Komeili et~al.(2021)Komeili, Shuster, and
+  Weston}]{Komeili2021InternetAugmentedDG}
+Mojtaba Komeili, Kurt Shuster, and Jason Weston. 2021.
+\newblock Internet-augmented dialogue generation.
+\newblock \emph{ArXiv}, abs/2107.07566.
+
+\bibitem[{Kwiatkowski et~al.(2019)Kwiatkowski, Palomaki, Redfield, Collins,
+  Parikh, Alberti, Epstein, Polosukhin, Devlin, Lee, Toutanova, Jones, Kelcey,
+  Chang, Dai, Uszkoreit, Le, and Petrov}]{kwiatkowski-etal-2019-natural}
+Tom Kwiatkowski, Jennimaria Palomaki, Olivia Redfield, Michael Collins, Ankur
+  Parikh, Chris Alberti, Danielle Epstein, Illia Polosukhin, Jacob Devlin,
+  Kenton Lee, Kristina Toutanova, Llion Jones, Matthew Kelcey, Ming-Wei Chang,
+  Andrew~M. Dai, Jakob Uszkoreit, Quoc Le, and Slav Petrov. 2019.
+\newblock \href {https://doi.org/10.1162/tacl_a_00276} {Natural questions: A
+  benchmark for question answering research}.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+  7:452--466.
+
+\bibitem[{Labeit et~al.(2017)Labeit, Shun, and Blelloch}]{LABEIT20172}
+Julian Labeit, Julian Shun, and Guy~E. Blelloch. 2017.
+\newblock \href {https://doi.org/https://doi.org/10.1016/j.jda.2017.04.001}
+  {Parallel lightweight wavelet tree, suffix array and fm-index construction}.
+\newblock \emph{Journal of Discrete Algorithms}, 43:2--17.
+
+\bibitem[{Lazaridou et~al.(2022)Lazaridou, Gribovskaya, Stokowiec, and
+  Grigorev}]{lazaridou-etal-2022-internet}
+Angeliki Lazaridou, Elena Gribovskaya, Wojciech Stokowiec, and Nikolai
+  Grigorev. 2022.
+\newblock Internet-augmented language models through few-shot prompting for
+  open-domain question answering.
+\newblock \emph{ArXiv}, abs/2203.05115.
+
+\bibitem[{Lesota et~al.(2021)Lesota, Rekabsaz, Cohen, Grasserbauer, Eickhoff,
+  and Schedl}]{lesota-etal-2021-modern}
+Oleg Lesota, Navid Rekabsaz, Daniel Cohen, Klaus~Antonius Grasserbauer, Carsten
+  Eickhoff, and Markus Schedl. 2021.
+\newblock \href {https://doi.org/10.1145/3471158.3472229} {A modern perspective
+  on query likelihood with deep generative retrieval models}.
+\newblock In \emph{{ICTIR} '21: The 2021 {ACM} {SIGIR} International Conference
+  on the Theory of Information Retrieval, Virtual Event, Canada, July 11,
+  2021}, pages 185--195. {ACM}.
+
+\bibitem[{Levy et~al.(2017)Levy, Seo, Choi, and Zettlemoyer}]{levy2017zero}
+Omer Levy, Minjoon Seo, Eunsol Choi, and Luke Zettlemoyer. 2017.
+\newblock Zero-shot relation extraction via reading comprehension.
+\newblock \emph{CoNLL}.
+
+\bibitem[{Lewis et~al.(2019)Lewis, Liu, Goyal, Ghazvininejad, Mohamed, Levy,
+  Stoyanov, and Zettlemoyer}]{Lewis2019BARTDS}
+Mike Lewis, Yinhan Liu, Naman Goyal, Marjan Ghazvininejad, Abdelrahman Mohamed,
+  Omer Levy, Ves Stoyanov, and Luke Zettlemoyer. 2019.
+\newblock Bart: Denoising sequence-to-sequence pre-training for natural
+  language generation, translation, and comprehension.
+\newblock \emph{ArXiv}, abs/1910.13461.
+
+\bibitem[{Lewis et~al.(2021{\natexlab{a}})Lewis, Oğuz, Xiong, Petroni, tau
+  Yih, and Riedel}]{Lewis2021BoostedDR}
+Patrick Lewis, Barlas Oğuz, Wenhan Xiong, Fabio Petroni, Wen tau Yih, and
+  Sebastian Riedel. 2021{\natexlab{a}}.
+\newblock Boosted dense retriever.
+\newblock \emph{ArXiv}, abs/2112.07771.
+
+\bibitem[{Lewis et~al.(2020)Lewis, Perez, Piktus, Petroni, Karpukhin, Goyal,
+  K{\"u}ttler, Lewis, tau Yih, Rockt{\"a}schel, Riedel, and
+  Kiela}]{lewis2020retrievalaugmented}
+Patrick Lewis, Ethan Perez, Aleksandara Piktus, Fabio Petroni, Vladimir
+  Karpukhin, Naman Goyal, Heinrich K{\"u}ttler, Mike Lewis, Wen tau Yih, Tim
+  Rockt{\"a}schel, Sebastian Riedel, and Douwe Kiela. 2020.
+\newblock \href {http://arxiv.org/abs/2005.11401} {Retrieval-augmented
+  generation for knowledge-intensive nlp tasks}.
+
+\bibitem[{Lewis et~al.(2021{\natexlab{b}})Lewis, Stenetorp, and
+  Riedel}]{lewis-etal-2021-question}
+Patrick Lewis, Pontus Stenetorp, and Sebastian Riedel. 2021{\natexlab{b}}.
+\newblock \href {https://doi.org/10.18653/v1/2021.eacl-main.86} {Question and
+  answer test-train overlap in open-domain question answering datasets}.
+\newblock In \emph{Proceedings of the 16th Conference of the European Chapter
+  of the Association for Computational Linguistics: Main Volume}, pages
+  1000--1008, Online. Association for Computational Linguistics.
+
+\bibitem[{Lewis et~al.(2021{\natexlab{c}})Lewis, Wu, Liu, Minervini,
+  K{\"u}ttler, Piktus, Stenetorp, and Riedel}]{lewis-etal-2021-paq}
+Patrick Lewis, Yuxiang Wu, Linqing Liu, Pasquale Minervini, Heinrich
+  K{\"u}ttler, Aleksandra Piktus, Pontus Stenetorp, and Sebastian Riedel.
+  2021{\natexlab{c}}.
+\newblock \href {https://doi.org/10.1162/tacl_a_00415} {{PAQ}: 65 million
+  probably-asked questions and what you can do with them}.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+  9:1098--1115.
+
+\bibitem[{Lin and Ma(2021)}]{lin-ma-2021-unicoil}
+Jimmy Lin and Xueguang Ma. 2021.
+\newblock \href {http://arxiv.org/abs/2106.14807} {A few brief notes on
+  deepimpact, coil, and a conceptual framework for information retrieval
+  techniques}.
+\newblock \emph{CoRR}, abs/2106.14807.
+
+\bibitem[{Maillard et~al.(2021)Maillard, Karpukhin, Petroni, Yih, Oguz,
+  Stoyanov, and Ghosh}]{maillard-etal-2021-multi}
+Jean Maillard, Vladimir Karpukhin, Fabio Petroni, Wen-tau Yih, Barlas Oguz,
+  Veselin Stoyanov, and Gargi Ghosh. 2021.
+\newblock \href {https://doi.org/10.18653/v1/2021.acl-long.89} {Multi-task
+  retrieval for knowledge-intensive tasks}.
+\newblock In \emph{Proceedings of the 59th Annual Meeting of the Association
+  for Computational Linguistics and the 11th International Joint Conference on
+  Natural Language Processing (Volume 1: Long Papers)}, pages 1098--1111,
+  Online. Association for Computational Linguistics.
+
+\bibitem[{Mallia et~al.(2021)Mallia, Khattab, Suel, and
+  Tonellotto}]{mallia-etal-2021-deepimpact}
+Antonio Mallia, Omar Khattab, Torsten Suel, and Nicola Tonellotto. 2021.
+\newblock \href {https://doi.org/10.1145/3404835.3463030} {Learning passage
+  impacts for inverted indexes}.
+\newblock In \emph{{SIGIR} '21: The 44th International {ACM} {SIGIR} Conference
+  on Research and Development in Information Retrieval, Virtual Event, Canada,
+  July 11-15, 2021}, pages 1723--1727. {ACM}.
+
+\bibitem[{Mao et~al.(2021)Mao, He, Liu, Shen, Gao, Han, and
+  Chen}]{mao-etal-2021-generation}
+Yuning Mao, Pengcheng He, Xiaodong Liu, Yelong Shen, Jianfeng Gao, Jiawei Han,
+  and Weizhu Chen. 2021.
+\newblock \href {https://doi.org/10.18653/v1/2021.acl-long.316}
+  {Generation-augmented retrieval for open-domain question answering}.
+\newblock In \emph{Proceedings of the 59th Annual Meeting of the Association
+  for Computational Linguistics and the 11th International Joint Conference on
+  Natural Language Processing (Volume 1: Long Papers)}, pages 4089--4100,
+  Online. Association for Computational Linguistics.
+
+\bibitem[{Massarelli et~al.(2019)Massarelli, Petroni, Piktus, Ott,
+  Rockt{\"a}schel, Plachouras, Silvestri, and Riedel}]{massarelli2019decoding}
+Luca Massarelli, Fabio Petroni, Aleksandra Piktus, Myle Ott, Tim
+  Rockt{\"a}schel, Vassilis Plachouras, Fabrizio Silvestri, and Sebastian
+  Riedel. 2019.
+\newblock How decoding strategies affect the verifiability of generated text.
+\newblock \emph{arXiv preprint arXiv:1911.03587}.
+
+\bibitem[{Metzler et~al.(2021)Metzler, Tay, Bahri, and
+  Najork}]{Metzler:Rethinking21}
+Donald Metzler, Yi~Tay, Dara Bahri, and Marc Najork. 2021.
+\newblock \href {https://doi.org/10.1145/3476415.3476428} {Rethinking search:
+  Making domain experts out of dilettantes}.
+\newblock \emph{SIGIR Forum}, 55(1).
+
+\bibitem[{Nakano et~al.(2021)Nakano, Hilton, Balaji, Wu, Ouyang, Kim, Hesse,
+  Jain, Kosaraju, Saunders, Jiang, Cobbe, Eloundou, Krueger, Button, Knight,
+  Chess, and Schulman}]{nakano-2021-webgpt}
+Reiichiro Nakano, Jacob Hilton, S.~Arun Balaji, Jeff Wu, Long Ouyang, Christina
+  Kim, Christopher Hesse, Shantanu Jain, Vineet Kosaraju, William Saunders,
+  Xu~Jiang, Karl Cobbe, Tyna Eloundou, Gretchen Krueger, Kevin Button, Matthew
+  Knight, Benjamin Chess, and John Schulman. 2021.
+\newblock Webgpt: Browser-assisted question-answering with human feedback.
+\newblock \emph{ArXiv}, abs/2112.09332.
+
+\bibitem[{Nogueira and Lin(2021)}]{nogueira-lin-2019-docTTTTTquery}
+Rodrigo Nogueira and Jimmy Lin. 2021.
+\newblock \href
+  {https://cs.uwaterloo.ca/~jimmylin/publications/Nogueira_Lin_2019_docTTTTTquery.pdf}
+  {From doc2query to doctttttquery}.
+
+\bibitem[{Nogueira et~al.(2019)Nogueira, Yang, Lin, and
+  Cho}]{nogueira-etal-2019-doc2query}
+Rodrigo Nogueira, Wei Yang, Jimmy Lin, and Kyunghyun Cho. 2019.
+\newblock \href {http://arxiv.org/abs/1904.08375} {Document expansion by query
+  prediction}.
+\newblock \emph{CoRR}, abs/1904.08375.
+
+\bibitem[{Nogueira~dos Santos et~al.(2020)Nogueira~dos Santos, Ma, Nallapati,
+  Huang, and Xiang}]{nogueira-dos-santos-etal-2020-beyond}
+Cicero Nogueira~dos Santos, Xiaofei Ma, Ramesh Nallapati, Zhiheng Huang, and
+  Bing Xiang. 2020.
+\newblock \href {https://doi.org/10.18653/v1/2020.emnlp-main.134} {Beyond
+  [{CLS}] through ranking by generation}.
+\newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 1722--1727, Online. Association
+  for Computational Linguistics.
+
+\bibitem[{Oğuz et~al.(2021)Oğuz, Lakhotia, Gupta, Lewis, Karpukhin, Piktus,
+  Chen, Riedel, tau Yih, Gupta, and Mehdad}]{oguz-etal-2021-domain}
+Barlas Oğuz, Kushal Lakhotia, Anchit Gupta, Patrick Lewis, Vladimir Karpukhin,
+  Aleksandra Piktus, Xilun Chen, Sebastian Riedel, Wen tau Yih, Sonal Gupta,
+  and Yashar Mehdad. 2021.
+\newblock Domain-matched pre-training tasks for dense retrieval.
+\newblock \emph{ArXiv}, abs/2107.13602.
+
+\bibitem[{Paranjape et~al.(2021)Paranjape, Khattab, Potts, Zaharia, and
+  Manning}]{paranjape-etal-2021-hindsight}
+Ashwin Paranjape, Omar Khattab, Christopher Potts, Matei Zaharia, and
+  Christopher~D. Manning. 2021.
+\newblock \href {http://arxiv.org/abs/2110.07752} {Hindsight: Posterior-guided
+  training of retrievers for improved open-ended generation}.
+\newblock \emph{CoRR}, abs/2110.07752.
+
+\bibitem[{Petroni et~al.(2020)Petroni, Lewis, Piktus, Rockt{\"a}schel, Wu,
+  Miller, and Riedel}]{petroni2020context}
+Fabio Petroni, Patrick Lewis, Aleksandra Piktus, Tim Rockt{\"a}schel, Yuxiang
+  Wu, Alexander~H Miller, and Sebastian Riedel. 2020.
+\newblock How context affects language models' factual predictions.
+\newblock \emph{AKBC}.
+
+\bibitem[{Petroni et~al.(2021)Petroni, Piktus, Fan, Lewis, Yazdani, De~Cao,
+  Thorne, Jernite, Karpukhin, Maillard, Plachouras, Rockt{\"a}schel, and
+  Riedel}]{petroni-etal-2021-kilt}
+Fabio Petroni, Aleksandra Piktus, Angela Fan, Patrick Lewis, Majid Yazdani,
+  Nicola De~Cao, James Thorne, Yacine Jernite, Vladimir Karpukhin, Jean
+  Maillard, Vassilis Plachouras, Tim Rockt{\"a}schel, and Sebastian Riedel.
+  2021.
+\newblock \href {https://doi.org/10.18653/v1/2021.naacl-main.200} {{KILT}: a
+  benchmark for knowledge intensive language tasks}.
+\newblock In \emph{Proceedings of the 2021 Conference of the North American
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies}, pages 2523--2544, Online. Association for Computational
+  Linguistics.
+
+\bibitem[{Petroni et~al.(2019)Petroni, Rockt{\"a}schel, Lewis, Bakhtin, Wu,
+  Miller, and Riedel}]{petroni2019language}
+Fabio Petroni, Tim Rockt{\"a}schel, Patrick Lewis, Anton Bakhtin, Yuxiang Wu,
+  Alexander~H Miller, and Sebastian Riedel. 2019.
+\newblock Language models as knowledge bases?
+\newblock \emph{EMNLP}.
+
+\bibitem[{Piktus et~al.(2021)Piktus, Petroni, Karpukhin, Okhonko, Broscheit,
+  Izacard, Lewis, Oguz, Grave, Yih, and Riedel}]{piktus-etal-2021-web}
+Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Dmytro Okhonko, Samuel
+  Broscheit, Gautier Izacard, Patrick Lewis, Barlas Oguz, Edouard Grave,
+  Wen{-}tau Yih, and Sebastian Riedel. 2021.
+\newblock \href {http://arxiv.org/abs/2112.09924} {The web is your oyster -
+  knowledge-intensive {NLP} against a very large web corpus}.
+\newblock \emph{CoRR}, abs/2112.09924.
+
+\bibitem[{Radford et~al.(2019)Radford, Wu, Child, Luan, Amodei, Sutskever
+  et~al.}]{radford2019language}
+Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, Ilya
+  Sutskever, et~al. 2019.
+\newblock Language models are unsupervised multitask learners.
+\newblock \emph{OpenAI blog}, 1(8):9.
+
+\bibitem[{Rae et~al.(2021)Rae, Borgeaud, Cai, Millican, Hoffmann, Song,
+  Aslanides, Henderson, Ring, Young et~al.}]{rae2021scaling}
+Jack~W Rae, Sebastian Borgeaud, Trevor Cai, Katie Millican, Jordan Hoffmann,
+  Francis Song, John Aslanides, Sarah Henderson, Roman Ring, Susannah Young,
+  et~al. 2021.
+\newblock Scaling language models: Methods, analysis \& insights from training
+  gopher.
+\newblock \emph{arXiv preprint arXiv:2112.11446}.
+
+\bibitem[{Raffel et~al.(2019)Raffel, Shazeer, Roberts, Lee, Narang, Matena,
+  Zhou, Li, and Liu}]{2019t5}
+Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael
+  Matena, Yanqi Zhou, Wei Li, and Peter~J. Liu. 2019.
+\newblock \href {http://arxiv.org/abs/1910.10683} {Exploring the limits of
+  transfer learning with a unified text-to-text transformer}.
+\newblock \emph{arXiv e-prints}.
+
+\bibitem[{Roberts et~al.(2020)Roberts, Raffel, and Shazeer}]{roberts2020much}
+Adam Roberts, Colin Raffel, and Noam Shazeer. 2020.
+\newblock How much knowledge can you pack into the parameters of a language
+  model?
+\newblock \emph{arXiv preprint arXiv:2002.08910}.
+
+\bibitem[{Robertson and Zaragoza(2009)}]{robertson-zaragoza-2009-probabilistic}
+Stephen~E. Robertson and Hugo Zaragoza. 2009.
+\newblock \href {https://doi.org/10.1561/1500000019} {The probabilistic
+  relevance framework: {BM25} and beyond}.
+\newblock \emph{Found. Trends Inf. Retr.}, 3(4):333--389.
+
+\bibitem[{Salson et~al.(2009)Salson, Lecroq, L\'eonard, and
+  Mouchard}]{Salson2009a}
+M.~Salson, T.~Lecroq, M.~L\'eonard, and L.~Mouchard. 2009.
+\newblock \href {https://doi.org/10.1016/j.tcs.2009.07.016} {A four-stage
+  algorithm for updating a {B}urrows-{W}heeler {T}ransform}.
+\newblock \emph{Theoretical Computer Science}, 410(43):4350--4359.
+
+\bibitem[{Shuster et~al.(2022)Shuster, Komeili, Adolphs, Roller, Szlam, and
+  Weston}]{Shuster2022LanguageMT}
+Kurt Shuster, Mojtaba Komeili, Leonard Adolphs, Stephen Roller, Arthur~D.
+  Szlam, and Jason Weston. 2022.
+\newblock Language models that seek for knowledge: Modular search \& generation
+  for dialogue and prompt completion.
+\newblock \emph{ArXiv}, abs/2203.13224.
+
+\bibitem[{Smith et~al.(2022)Smith, Patwary, Norick, LeGresley, Rajbhandari,
+  Casper, Liu, Prabhumoye, Zerveas, Korthikanti et~al.}]{smith2022using}
+Shaden Smith, Mostofa Patwary, Brandon Norick, Patrick LeGresley, Samyam
+  Rajbhandari, Jared Casper, Zhun Liu, Shrimai Prabhumoye, George Zerveas,
+  Vijay Korthikanti, et~al. 2022.
+\newblock Using deepspeed and megatron to train megatron-turing nlg 530b, a
+  large-scale generative language model.
+\newblock \emph{arXiv preprint arXiv:2201.11990}.
+
+\bibitem[{Tay et~al.(2021)Tay, Zhang, Wan, and
+  Karimi}]{tay-etal-2021-measuring}
+Wenyi Tay, Xiuzhen Zhang, Stephen Wan, and Sarvnaz Karimi. 2021.
+\newblock \href {https://doi.org/10.18653/v1/2021.newsum-1.9} {Measuring
+  similarity of opinion-bearing sentences}.
+\newblock In \emph{Proceedings of the Third Workshop on New Frontiers in
+  Summarization}, pages 74--84, Online and in Dominican Republic. Association
+  for Computational Linguistics.
+
+\bibitem[{Tay et~al.(2022)Tay, Tran, Dehghani, Ni, Bahri, Mehta, Qin, Hui,
+  Zhao, Gupta, Schuster, Cohen, and Metzler}]{tay-etal-2022-transformer}
+Yi~Tay, Vinh~Quang Tran, Mostafa Dehghani, Jianmo Ni, Dara Bahri, Harsh Mehta,
+  Zhen Qin, Kai Hui, Zhe Zhao, Jai Gupta, Tal Schuster, William~W. Cohen, and
+  Donald Metzler. 2022.
+\newblock Transformer memory as a differentiable search index.
+\newblock \emph{ArXiv}, abs/2202.06991.
+
+\bibitem[{Thorne et~al.(2018)Thorne, Vlachos, Christodoulopoulos, and
+  Mittal}]{Thorne18Fever}
+James Thorne, Andreas Vlachos, Christos Christodoulopoulos, and Arpit Mittal.
+  2018.
+\newblock {FEVER}: a large-scale dataset for fact extraction and verification.
+\newblock In \emph{NAACL-HLT}.
+
+\bibitem[{Voorhees et~al.(1999)}]{voorhees1999trec}
+Ellen~M Voorhees et~al. 1999.
+\newblock The trec-8 question answering track report.
+\newblock In \emph{Trec}, volume~99, pages 77--82.
+
+\bibitem[{Yamada et~al.(2021)Yamada, Asai, and
+  Hajishirzi}]{yamada-etal-2021-efficient}
+Ikuya Yamada, Akari Asai, and Hannaneh Hajishirzi. 2021.
+\newblock \href {https://doi.org/10.18653/v1/2021.acl-short.123} {Efficient
+  passage retrieval with hashing for open-domain question answering}.
+\newblock In \emph{Proceedings of the 59th Annual Meeting of the Association
+  for Computational Linguistics and the 11th International Joint Conference on
+  Natural Language Processing (Volume 2: Short Papers)}, pages 979--986,
+  Online. Association for Computational Linguistics.
+
+\bibitem[{Yang et~al.(2018)Yang, Qi, Zhang, Bengio, Cohen, Salakhutdinov, and
+  Manning}]{yang2018hotpotqa}
+Zhilin Yang, Peng Qi, Saizheng Zhang, Yoshua Bengio, William Cohen, Ruslan
+  Salakhutdinov, and Christopher~D. Manning. 2018.
+\newblock \href {https://doi.org/10.18653/v1/D18-1259} {{H}otpot{QA}: A dataset
+  for diverse, explainable multi-hop question answering}.
+\newblock \emph{Proceedings of the 2018 Conference on Empirical Methods in
+  Natural Language Processing}, pages 2369--2380.
+
+\bibitem[{Zhao et~al.(2021)Zhao, Lu, and Lee}]{zhao-etal-2021-sparta}
+Tiancheng Zhao, Xiaopeng Lu, and Kyusong Lee. 2021.
+\newblock \href {https://doi.org/10.18653/v1/2021.naacl-main.47} {{SPARTA}:
+  Efficient open-domain question answering via sparse transformer matching
+  retrieval}.
+\newblock In \emph{Proceedings of the 2021 Conference of the North American
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies}, pages 565--575, Online. Association for Computational
+  Linguistics.
+
+\bibitem[{Zhuang and Zuccon(2021)}]{zhuang-zuccon-2021-tilde}
+Shengyao Zhuang and Guido Zuccon. 2021.
+\newblock \href {https://doi.org/10.1145/3404835.3462922} {{TILDE:} term
+  independent likelihood model for passage re-ranking}.
+\newblock In \emph{{SIGIR} '21: The 44th International {ACM} {SIGIR} Conference
+  on Research and Development in Information Retrieval, Virtual Event, Canada,
+  July 11-15, 2021}, pages 1483--1492. {ACM}.
+
+\end{thebibliography}

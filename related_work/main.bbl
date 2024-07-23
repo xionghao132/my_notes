@@ -1,0 +1,74 @@
+\begin{thebibliography}{15}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Chen et~al.(2017)Chen, Fisch, Weston, and Bordes}]{chen2017reading}
+Danqi Chen, Adam Fisch, Jason Weston, and Antoine Bordes. 2017.
+\newblock Reading wikipedia to answer open-domain questions.
+\newblock \emph{arXiv preprint arXiv:1704.00051}.
+
+\bibitem[{Chuang et~al.(2023)Chuang, Fang, Li, Yih, and Glass}]{chuang2023expand}
+Yung-Sung Chuang, Wei Fang, Shang-Wen Li, Wen-tau Yih, and James Glass. 2023.
+\newblock Expand, rerank, and retrieve: Query reranking for open-domain question answering.
+\newblock \emph{arXiv preprint arXiv:2305.17080}.
+
+\bibitem[{Dai and Callan(2019)}]{Dai_2019}
+Zhuyun Dai and Jamie Callan. 2019.
+\newblock \href {https://doi.org/10.1145/3331184.3331303} {Deeper text understanding for ir with contextual neural language modeling}.
+\newblock In \emph{Proceedings of the 42nd International ACM SIGIR Conference on Research and Development in Information Retrieval}, SIGIR ’19. ACM.
+
+\bibitem[{Devlin et~al.(2019)Devlin, Chang, Lee, and Toutanova}]{devlin2019bert}
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2019.
+\newblock \href {http://arxiv.org/abs/1810.04805} {Bert: Pre-training of deep bidirectional transformers for language understanding}.
+
+\bibitem[{Gao and Callan(2021)}]{gao2021condenser}
+Luyu Gao and Jamie Callan. 2021.
+\newblock \href {http://arxiv.org/abs/2104.08253} {Condenser: a pre-training architecture for dense retrieval}.
+
+\bibitem[{Izacard and Grave(2020)}]{izacard2020leveraging}
+Gautier Izacard and Edouard Grave. 2020.
+\newblock Leveraging passage retrieval with generative models for open domain question answering.
+\newblock \emph{arXiv preprint arXiv:2007.01282}.
+
+\bibitem[{Izacard and Grave(2022)}]{izacard2022distilling}
+Gautier Izacard and Edouard Grave. 2022.
+\newblock \href {http://arxiv.org/abs/2012.04584} {Distilling knowledge from reader to retriever for question answering}.
+
+\bibitem[{Karpukhin et~al.(2020)Karpukhin, O{\u{g}}uz, Min, Lewis, Wu, Edunov, Chen, and Yih}]{karpukhin2020dense}
+Vladimir Karpukhin, Barlas O{\u{g}}uz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, and Wen-tau Yih. 2020.
+\newblock Dense passage retrieval for open-domain question answering.
+\newblock \emph{arXiv preprint arXiv:2004.04906}.
+
+\bibitem[{Lewis et~al.(2020)Lewis, Perez, Piktus, Petroni, Karpukhin, Goyal, K{\"u}ttler, Lewis, Yih, Rockt{\"a}schel et~al.}]{lewis2020retrieval}
+Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich K{\"u}ttler, Mike Lewis, Wen-tau Yih, Tim Rockt{\"a}schel, et~al. 2020.
+\newblock Retrieval-augmented generation for knowledge-intensive nlp tasks.
+\newblock \emph{Advances in Neural Information Processing Systems}, 33:9459--9474.
+
+\bibitem[{Mao et~al.(2021{\natexlab{a}})Mao, He, Liu, Shen, Gao, Han, and Chen}]{mao2021generationaugmented}
+Yuning Mao, Pengcheng He, Xiaodong Liu, Yelong Shen, Jianfeng Gao, Jiawei Han, and Weizhu Chen. 2021{\natexlab{a}}.
+\newblock \href {http://arxiv.org/abs/2009.08553} {Generation-augmented retrieval for open-domain question answering}.
+
+\bibitem[{Mao et~al.(2021{\natexlab{b}})Mao, He, Liu, Shen, Gao, Han, and Chen}]{mao2021rider}
+Yuning Mao, Pengcheng He, Xiaodong Liu, Yelong Shen, Jianfeng Gao, Jiawei Han, and Weizhu Chen. 2021{\natexlab{b}}.
+\newblock Rider: Reader-guided passage reranking for open-domain question answering.
+\newblock \emph{arXiv preprint arXiv:2101.00294}.
+
+\bibitem[{Nogueira and Cho(2019)}]{nogueira2019passage}
+Rodrigo Nogueira and Kyunghyun Cho. 2019.
+\newblock Passage re-ranking with bert.
+\newblock \emph{arXiv preprint arXiv:1901.04085}.
+
+\bibitem[{Qu et~al.(2021)Qu, Ding, Liu, Liu, Ren, Zhao, Dong, Wu, and Wang}]{qu2021rocketqa}
+Yingqi Qu, Yuchen Ding, Jing Liu, Kai Liu, Ruiyang Ren, Wayne~Xin Zhao, Daxiang Dong, Hua Wu, and Haifeng Wang. 2021.
+\newblock \href {http://arxiv.org/abs/2010.08191} {Rocketqa: An optimized training approach to dense passage retrieval for open-domain question answering}.
+
+\bibitem[{Robertson and Zaragoza(2009)}]{Robertson2009ThePR}
+Stephen~E. Robertson and Hugo Zaragoza. 2009.
+\newblock \href {https://api.semanticscholar.org/CorpusID:207178704} {The probabilistic relevance framework: Bm25 and beyond}.
+\newblock \emph{Found. Trends Inf. Retr.}, 3:333--389.
+
+\bibitem[{Sachan et~al.(2022)Sachan, Lewis, Joshi, Aghajanyan, Yih, Pineau, and Zettlemoyer}]{sachan2022improving}
+Devendra~Singh Sachan, Mike Lewis, Mandar Joshi, Armen Aghajanyan, Wen-tau Yih, Joelle Pineau, and Luke Zettlemoyer. 2022.
+\newblock Improving passage retrieval with zero-shot question generation.
+\newblock \emph{arXiv preprint arXiv:2204.07496}.
+
+\end{thebibliography}

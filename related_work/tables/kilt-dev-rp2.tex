@@ -1,0 +1,22 @@
+\begin{table*}[ht]
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\centering
+\begin{tabular}{lSSSSSSS|S}
+\toprule
+\textbf{Model}        & {\textbf{FEV}}  & {\textbf{T-REx}} & {\textbf{zsRE}} & {\textbf{NQ}}   & {\textbf{HoPo}} & {\textbf{TQA}}  & {\textbf{WoW}}  & {\textbf{AVG}}  \\ \midrule
+BM25                & 40.1 & 51.6  & 53.0 & 14.2 & 38.4 & 16.2 & 18.4 & 33.1 \\
+DPR \cite{maillard-etal-2021-multi}          & 43.9 & 58.5  & \bfseries 78.8 & 28.1 & 43.5 & 23.8 & 20.7 & 42.5 \\
+MT-DPR \citep{maillard-etal-2021-multi}       & 52.1 & 53.5  & 41.7 & 28.8 & 38.4 & 34.2 & 24.1 & 39.0 \\
+MT-DPR \citep{oguz-etal-2021-domain}      & 52.1 & \bfseries 61.4  & 54.1 & 40.1 & 41.0 & 34.2 & 24.6 & 43.9 \\ \midrule
+MT-DPR$\dag$ \citep{oguz-etal-2021-domain}                      & 61.4 & 68.4  & 73.3 & 44.1 & 44.6 & 38.9 & 26.5 & 51.0 \\
+MT-DPR$\dag$ (large) \citep{oguz-etal-2021-domain}     & 62.8 & 66.6  & 66.9 & 42.6 & 42.1 & 37.9 & 23.4 & 48.9 \\ \midrule
+
+\system{} (LM+FM)   & 31.5 & 42.0 & 34.0 & 21.7 & 24.7 & 21.4 & 17.6 & 27.6 \\ 
+\system{} (LM+FM, intersective)   & \bfseries 67.8 & 58.9 & \bfseries 78.8 & \bfseries 43.6 & \bfseries 54.3 & \bfseries 41.8 & \bfseries 36.0 & \bfseries 54.5 \\
+\bottomrule
+
+\end{tabular}
+\caption{Retrieval results on individual KILT dev set(s), with the average in the rightmost column. Reporting passage-level R-precision (higher is better). We mark model that are also trained on additional synthetic data \citep{lewis-etal-2021-paq} with $\dag$. All \system{} models are multitask. Best among models trained only on KILT queries in bold.}
+\label{tab:kilt-dev-rp}
+\end{table*}

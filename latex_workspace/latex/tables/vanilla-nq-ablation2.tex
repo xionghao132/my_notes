@@ -1,0 +1,28 @@
+\begin{table}
+\footnotesize
+\centering
+\begin{tabular}{ccS[table-format=2,round-precision=0]SS}
+\toprule
+{\textbf{System}} & 
+{\textbf{Constr.}} & 
+{\textbf{Beam}} & 
+{\textbf{A@20}} &
+{\textbf{A@100}}
+\\
+\midrule
+SEAL    & \cmark  & 15   & 65.8 & 81.1 \\
+(LM+FM)         & \xmark  & 15   & 65.3 & 80.1 \\
+                 & \cmark  & 3    & 63.3 & 78.0 \\
+                 & \cmark  & 5    & 64.7 & 79.9 \\
+                 & \cmark  & 10   & 65.4 & 80.8 \\
+\midrule
+SEAL             & \cmark  & 15   & 76.2 & 86.3 \\
+(LM+FM,          & \xmark  & 15   & 76.2 & 86.2 \\
+intersective)      & \cmark  & 3    & 75.2 & 84.9 \\
+                 & \cmark  & 5    & 75.9 & 85.8 \\
+                 & \cmark  & 10   & 76.4 & 86.4 \\ 
+\bottomrule
+\end{tabular}
+\caption{Ablation on Natural Questions. \system{} when using (\cmark) or not using (\xmark) FM-index constrained decoding, for beam size values in $\{3,5,10,15\}$. Reporting accuracy@$k$.}
+\label{tab:ablation}
+\end{table}

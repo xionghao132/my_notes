@@ -1,0 +1,16 @@
+\begin{table}[h]
+    \centering
+    \begin{tabular}{cccSS}
+        \toprule
+        \textbf{System} & \textbf{Sup.} & \textbf{Unsup.} & {\bfseries A@20} & {\bfseries A@100}  \\
+        \midrule
+        BM25 & - & - & 62.9 & 78.1 \\
+        \midrule
+        \system{} & \cmark & \cmark & 76.2 & 86.3\\
+        (LM+FM & \cmark & \xmark & 74.81 & 85.4 \\
+        intersective) & \xmark & \cmark & 61.71 & 76.32 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Ablation on Natural Questions. \system{} when using (\cmark) or not using (\xmark) supervised/unsupervised data. Reporting accuracy@$k$.}
+    \label{tab:nq-ablation-data}
+\end{table}

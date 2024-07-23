@@ -1,0 +1,132 @@
+增强逻辑：
+Please analyze the logic and coherence among sentences within each paragraph in the following text. Identify any areas where the flow or connections between sentences could be improved,and provide specific suggestians to enhance the overall quality and readability to the content, Please only provide the text after improving and then give a list of the improvemments in Chinese, Please improve the following text:
+
+学术翻译并润色改写：
+我希望你扮演一位商深的中英学术互译的翻译，我会提供中英一种语言的文案，你的任多是准确且学术化的将段落翻译成另一种语言。翻译后不要重复原始提供的段落。请便用人工智能工具，如自然语言处理，以及有效的写作技巧和相关修辞知识和经验来回答，我将如下给出我的段落，告诉我它是用什么语言写的，然后进行翻译。我希望你的输出是一个表格，第一列是原语言，第二列是翻译后的句子，第三列给出另一种翻译方式，每行只给出一句话：
+
+写摘要
+Please read through the uploaded manuscript and write an abstract in English for it.Theabstracshould initiate with a comprehensive summary of the broader context or background of the studifollowed bv a statement that describe the gaps limitations or issues, Then, describe the researcmethods used in the manuscript, After that, write 3-5 sentences showina the kev findinas, In theend, include a statement which underscores the unique value or significant contribution of themanuscript. After generating the abstract, give explanation in Chinese checking if you havefollowed the instruction in a markdown table.
+
+
+修改参考文献格式
+请按照APA格式对我的参考文献格式进行校正，按照Resources, Conservation & Recycling杂志的格式(参考我附上的5个模版文献)调整为严格符合APA的文献格式，最后你需要将参考文献以Markdown格式的代码块形式展示。需要注意的是期刊名称要全称，且斜体，下面是5个参考文献模板:
+Balassa, B., 1965. Trade liberalisation and “Revealed” comparative advantage. Manch.
+Sch. 33, 99–123. https://doi.org/10.1111/j.1467-9957.1965.tb00050.x.
+Cai, R., Tian, W., Wang, H., 2021. Structural holes, network influence and product
+production capacity accumulation-based on the empirical research of China’s
+manufacturing product space. Modernization Manag. 41, 39–43. https://doi.org/
+10.19634/j.cnki.11-1403/c.2021.05.010.
+Campi, M., Due˜nas, M., Fagiolo, G., 2020. How do countries specialize in agricultural
+production? A complex network analysis of the global agricultural product space.
+Environ. Res. Lett. 15, 124006 https://doi.org/10.1088/1748-9326/abc2f6.
+Chen, H., Wang, B., 2020. Influence of technology complexity in producer service
+imports on the quality of manufacturing exports. J. Int. Trade 97–112. https://doi.
+org/10.13510/j.cnki.jit.2020.09.007.
+Chen, X., Mao, J., Yu, G., 2022. Analysis of iron composite flow in China. Environ. Sci.
+Pollut. Res. 29, 65613–65624. https://doi.org/10.1007/s11356-022-20212-2.
+
+The following are the references you need to reformat:
+O’Clery, N., Yıldırım, M.A., Hausmann, R., 2021. Productive Ecosystems and the arrow
+of development. Nat. Commun. 12 (1479) https://doi.org/10.1038/s41467-021-
+21689-0.
+Qi, X., Xiao, W., Xiang, X., 2021. The spatial pattern of the blue product development of
+nations: an empirical analysis based on product space theory. Ocean Coast Manag.
+207, 105596 https://doi.org/10.1016/j.ocecoaman.2021.105596.
+Qi, X., Zhao, B., Zhang, J., Xiao, W., 2020a. The drawing of a national blue product space
+and its evolution. Mar. Policy 112, 103773. https://doi.org/10.1016/j.
+marpol.2019.103773.
+Qi, X., Zhao, B., Zhang, J.H., 2020b. What does the product space mean for firms in the
+development of marine-related products? Mar. Policy 115, 103822. https://doi.org/
+10.1016/j.marpol.2020.103822.
+Qian, J., 2007. Steel industry development and China’s industrialization. Econ. Rev. J.
+11–15. https://doi.org/10.16528/j.cnki.22-1054/f.2007.11.004.
+Qyyum, M.A., Ali Shah, S.F., Qadeer, K., Naquash, A., Yasin, M., Rehan, M.,
+Tabatabaei, M., Aghbashlo, M., Lee, M., Nizami, A.S., 2022. Biowaste to bioenergy
+options for sustainable economic growth opportunities in developing countries:
+product space model analysis and policy map development. Renew. Sustain. Energy
+Rev. 169, 112832 https://doi.org/10.1016/j.rser.2022.112832.
+
+
+改写别人论文中的整个段落到自己的文章中
+1. Please summarize the following text into one sentence and 5 to 10 kevwords:内容
+2. write new content with above summary sentence as the main topic and including akeywords as bullet points
+
+
+精炼文章，增强逻辑
+following text. dentify any areas where the flow or connections between sentences could btimproved, and provide specific suggestions to enhance the overall quality and readability tothe content, Please only provide the text after improving and then give a list of theimprovements in Chinese. Please improve the following text:
+
+
+I want you to act as an academic journal editor am going to provide you an abstract ofmanuscript and you provide me with 5 goodtitles in English for a research paper and giveexplanation for why this title is good. Providevour output as a markdown table with twocolumns and with head in Chinese. First column gives titles in English and secondcolumn provides explanation in Chinese. Thefollowing text is the abstract: 指令后面加上你文章的摘要
+
+
+英文翻译+润色：
+I want you to act as an English translator, spelling corrector and improver. I will speak to you in any language and you will detect the language, translate it and answer in the corrected and improved version of my text, in English. I want you to replace my simplified A0-level words and sentences with more beautiful and elegant, upper level English words and sentences. Keep the meaning same, but make them more literary. I want you to only reply the correction, the improvements and nothing else, do not write explanations. My first sentence is "istanbulu cok seviyom burada olmak cok guzel"
+
+中文润色：
+As a Chinese academic paper writing improvement assistant, your task is to improve thespelling, grammar, clarity, conciseness and overall readability of the text provided, whilebreaking down long sentences, reducing repetition, and providing improvementsuggestions. Please provide only the corrected version of the text, with explanations.Provide the output as a markdown table, with each sentence in a separate row. The firstcolumn is the original sentence, and the second column is the sentence after editing andthe third column provides explanation in Chinese. Please edit the followina text. 中文段落
+
+
+英文润色：
+Below is a paragraph from an academic paper. Polish the writing to meet the academic style, improve the spelling, grammar, clarity, concision and overall readability. When necessary, rewrite the whole sentence to reduce repetition. Furthermore, list all modification and explain the reasons to do so in markdown table：
+需要润色的段落或者句子。
+
+翻译：地道的翻译出以下句子。
+Translate "内容" in a formal/academia way
+
+1. 更正语法指令：Can you help me to correct the grammar of the above paragraph?
+
+2. 初级润色指令：Please rewrite and retouch this pargraph "内容"
+
+3. 初级润色指令(效果好)：Rewrite "内容" in a formal/academia way
+
+
+4. 根据预投稿的期刊要求进行润色与改写：Polish the above text according to the xxxxx edition journal template
+
+5. 高级润色指令：
+Step1: 引导1:
+I'm going to give you some information before asking you to write an article. Do you understand?
+
+Step2: 引导2:
+When it comes to writing content, two factors are crucial, "perplexity" and "burstiness." Perplexity measures the complexity of text. Separately, burstiness compares the variations of sentences. Humans tend to write with greater burstiness, for example, with some longer or complex sentences alongside shorter ones. Al sentences tend to be more uniform. Therefore, when writing the following content I am going to ask you to create, I need it to have a good amount of perplexity and burstiness. Do you understand?
+
+Step3: 重写指令：
+using the concepts writted previously, rewrite this article with a high degree of perplexity and burstiness: ${内容}
+
+简单改写：
+Rewrite and expand on the passage in the style of a college-educated native English speaker. Use simple syntax and idiomatic expressions.
+
+用复杂的句法和词汇改写：
+Rewrite and expand on the passage in the style of an established scholar. Use complex syntax and advanced vocabulary. Make sure the new version is significantly different from the original.
+
+用某某作家/教授的风格改写：
+Rewrite the passage in the style of Steven Pinker.
+
+1. 论文
+I am writing a survey paper on …
+Could you please talk about …
+Could you please provide more details?
+
+ecology of remote sensing
+
+总结论文 Could you please summarize the paper “Deep Residual Learning for Image Recognition” ?
+ 
+
+修改语法，润色
+It is convenient to live in Shenzhen since it has well developed public transportation, lots of Central Business Districts, big hospitals, etc. However, the food is not very delicious. The cookers seems not very professional. The price of the food is not consistent with its taste.
+
+Could you please polish it?
+Could you please repeat it in another way?
+
+2. 邮件
+
+通知
+I am a phd student. It is difficult to pay for rent and daily expenses with the current scholarship. Could you please help me to write an mail to my university to ask for increasing the living stipend?
+
+3. 考试
+I am attending a TOEFL test. The speaking question is “How did you deal with the pandemic and lockdown situation?”. Could you please show an example answer in about 200 words?
+ 
+
+4. 代码
+
+I am writing a dataloader for visual classification. Could you please provide an example dataloader code compatible to pytorch?
+

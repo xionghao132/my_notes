@@ -1,0 +1,119 @@
+% This must be in the first 5 lines to tell arXiv to use pdfLaTeX, which is strongly recommended.
+\pdfoutput=1
+
+\documentclass[11pt]{article}
+
+% Remove the "review" option to generate the final version.
+%\usepackage[review]{acl}
+\usepackage[]{acl}
+
+\usepackage{times}
+
+\usepackage{latexsym}
+
+\usepackage{etoolbox}% <-- for robustify bold fonts in S columns
+% \newrobustcmd\ubold{\DeclareFontSeriesDefault[rm]{bf}{b}\bfseries}% <-- changed
+\robustify\bfseries
+
+\usepackage{siunitx}
+\sisetup{
+    round-mode=places,
+    round-precision=1,
+    detect-weight=true,
+    %detect-inline-weight=math,
+    detect-all=true,
+    table-format=2.1
+}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{xcolor} 
+\usepackage{soul}
+\usepackage{stfloats}
+
+% For proper rendering and hyphenation of words containing Latin characters (including in bib files)
+\usepackage[T1]{fontenc}
+% For Vietnamese characters
+% \usepackage[T5]{fontenc}
+% See https://www.latex-project.org/help/documentation/encguide.pdf for other character sets
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+
+% This is not strictly necessary, and may be commented out,
+% but it will improve the layout of the manuscript,
+% and will typically save some space.
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[export]{adjustbox}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{placeins}
+
+\begin{document}
+
+
+\include{8_commands}
+\include{comments_manager}
+% If the title and author information does not fit in the area allocated, uncomment the following
+%
+%\setlength\titlebox{<dim>}
+%
+% and set <dim> to something 5cm or larger.
+
+\newcommand{\eg}{\textit{e.g.}}  %examples{e.g.}} newcommand is used to define a new command
+\newcommand{\ie}{\textit{i.e.}}  %another words
+\newcommand{\system}{\textsc{RHR}}  %this means that the command system is AHR
+
+\title{Related Work}
+
+\newcommand{\sapienza}{$^1$}
+\newcommand{\sapienzafair}{$^{1,2}$}
+\newcommand{\fair}{$^2$}
+\newcommand{\uclfair}{$^{2,3}$}
+\newcommand{\ucl}{$^3$}
+
+\author{
+Hao Xiong \\
+Soochow University \\ 
+libraxionghao@gmail.com}
+
+% \robustify\bfseries
+\maketitle
+% \begin{abstract}
+% \input{0_abstract}
+% \end{abstract}
+% \input{0_abstract}
+
+%\ref{sec:Related Work}
+
+\begin{figure*}[ht!]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \includegraphics[
+    trim={0cm 0cm 0cm 0cm},    
+    clip=true
+    ]{figures/my_architecture.pdf}}
+    \caption{
+    High-level SEAL architecture, composed of an autoregressive LM paired with an FM-Index, for which we show the first (F) and last (L) columns of the underlying matrix (more details in Sec ). The FM-index constraints the autoregressive generation (\eg, after \textit{carbon} the model is contrained to generate either \textit{tax}, \textit{dioxide} or \textit{atom} in the example) and provides the documents matching (\ie, containing) the generated ngram (at each decoding step).
+    }
+    \label{fig:main}
+\end{figure*}
+
+% \input{1_introduction}
+
+\input{2_relatework}
+
+\input{4_methods}
+
+
+\bibliography{mybib}
+\bibliographystyle{acl_natbib}
+
+\FloatBarrier
+
+\end{document}

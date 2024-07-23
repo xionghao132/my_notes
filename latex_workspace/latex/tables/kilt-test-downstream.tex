@@ -1,0 +1,20 @@
+\begin{table*}[!ht]
+\footnotesize
+    \centering
+    \begin{tabular}{lSSSSSSS}
+    \toprule
+    \multirow{2}{*}{\textbf{System}}         & {\textbf{FEV}}  & {\textbf{T-REx}} & {\textbf{zsRE}} & {\textbf{NQ}}   & {\textbf{HoPo}} & {\textbf{TQA}}  & {\textbf{WoW}}  \\ 
+                   & {\textsc{acc}}  & {\textsc{acc}}   & {\textsc{acc}}  & {\textsc{em}}   & {\textsc{em}}   & {\textsc{em}}   & {\textsc{f1}}   \\ \midrule
+    KGI \citep{glass-etal-2021-robust}$^\dag$          & 85.6 & \bfseries 84.4  & 72.6 & 45.2 & {-} & 61.0 & 18.6 \\
+    Hindsight \citep{paranjape-etal-2021-hindsight}      & {-} & {-} & {-} & {-} & {-} & {-} & \bfseries 19.2 \\ 
+    DPR+BART \citep{petroni-etal-2021-kilt}        & 86.7 & 59.2  & 30.4 & 41.3 & 25.2 & 58.6 & 15.2 \\
+    RAG \citep{petroni-etal-2021-kilt}            & 86.3 & 59.2  & 44.7 & 44.4 & 27.0 & 71.3 & 13.1 \\
+    MT-DPR+BART \citep{maillard-etal-2021-multi}   & 86.3 & {-} & 58.0 & 39.8 & 31.8 & 59.6 & 15.3 \\
+    MT-DPR+FiD \citep{piktus-etal-2021-web}    & 89.0 & 82.5  & 71.7 & 49.9 & 36.9 & 71.0 & 15.7 \\
+    MT-DPR-WEB+FiD \citep{piktus-etal-2021-web} & 89.0 & 81.7  & 74.2 & 51.6 & 38.3 & \bfseries 72.7 & 15.5 \\ \midrule
+    \system{}+FiD (LM+FM)          & 87.9 & 83.7  & 74.2 & 47.3 & 37.6 & 65.8 & 17.5 \\
+    \system{}+FiD (LM+FM, intersective)             & \bfseries 89.5 & 83.6  & \bfseries 74.7 & \bfseries 53.7 & \bfseries 40.5 & 70.9 & 18.3 \\ \bottomrule
+    \end{tabular}
+    \caption{Downstream results on the KILT test set(s). Downstream metrics are accuracy (FEVER, T-REx, zero-shot RE), exact match (Natural Questions, HotpotQA, TriviaQA), or F1 (Wizard of Wikipedia). Best in bold. $\dag$: result taken from the \texttt{eval.ai} KILT leaderboard.}
+    \label{tab:kilt-test-downstream}
+\end{table*}

@@ -1,0 +1,26 @@
+\begin{table*}[t]
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\centering
+\begin{tabular}{lSSSSSSS|S}
+\toprule
+\textbf{Model}        & {\textbf{FEV}}  & {\textbf{T-REx}} & {\textbf{zsRE}} & {\textbf{NQ}}   & {\textbf{HoPo}} & {\textbf{TQA}}  & {\textbf{WoW}}  & {\textbf{AVG}}  \\ \midrule
+KGI \citep{glass-etal-2021-robust}               
+& 75.60 & 74.36 & \bfseries 98.49 & 63.71 & {-}   & 60.49 & 55.37 & {-} \\
+Hindsight \citep{paranjape-etal-2021-hindsight}         
+& {-}   & {-}   & {-}   & {-}   & {-}   & {-}   & 56.08 & {-} \\
+GENRE \citep{decao-etal-2021-autoregressive}             
+& \bfseries 83.64 & \bfseries 79.42 & 95.81 & 60.25 & 51.27 & \bfseries 69.16 & \bfseries 62.88 & \bfseries 71.8 \\
+MT-DPR \citep{maillard-etal-2021-multi}
+& 74.5 & 69.5 & 80.9 & 59.4 & 42.9 & 61.5 & 41.1 & 61.4 \\
+MT-DPR+WEB \citep{piktus-etal-2021-web}        
+& 74.77 & 75.64 & 89.65 & 59.83 & 45.38 & 58.85 & 41.54 & 63.7  \\ \midrule
+\system{} (LM+FM)
+& 77.8 & 67.8 & 98.0 & 60.3 & 54.0 & 68.1 & 55.4 & 68.8 \\
+\system{} (LM+FM, intersective)	
+& 81.4 & 62.1 & 91.6 & \bfseries 63.2 & \bfseries 58.8 & 68.4 & 57.5 & 69.0 \\
+\bottomrule
+\end{tabular}
+\caption{Retrieval results on the KILT test set(s). Reporting page-level R-precision (higher is better). Best in bold. Results are taken from the \texttt{eval.ai} KILT leaderboard.}
+\label{tab:kilt-test-rp-page}
+\end{table*}

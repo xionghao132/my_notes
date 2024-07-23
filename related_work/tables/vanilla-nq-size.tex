@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\resizebox{0.85\columnwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+\multirow{2}{*}{\textbf{System}} & 
+\multirow{1}{*}{\textbf{Model}} & 
+\multicolumn{3}{c}{\textbf{Index}} \\
+& {\textbf{Params}} & {\textbf{Size}} & {\textbf{Params}} & {\textbf{GPU?}} \\ \midrule
+\textit{plain text} & {-} & 13.4GB & {-} & {-}\\
+\midrule
+DPR      & 220M   & 64.6 GB    & 16.1B        & \cmark \\
+BM25     & -      & 18.8 GB    & {-}          & \xmark \\
+GAR      & 406M   & 18.8 GB    & {-}          & \xmark \\
+DSI-BART & 406M   & {-}        & {-}          & {-}    \\
+SEAL     & 406M   & 8.8GB       & {-}          & \xmark \\
+\bottomrule
+\end{tabular}
+}
+\caption{Language model and index size on Natural Questions (around 21M passages). \system{}'s index is \textasciitilde1.5 times smaller than uncompressed plain text.}
+\label{tab:nq-size}
+\end{table}

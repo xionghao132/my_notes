@@ -1,0 +1,134 @@
+% This must be in the first 5 lines to tell arXiv to use pdfLaTeX, which is strongly recommended.
+\pdfoutput=1
+
+\documentclass[11pt]{article}
+
+% Remove the "review" option to generate the final version.
+%\usepackage[review]{acl}
+\usepackage[]{acl}
+
+\usepackage{times}
+
+\usepackage{latexsym}
+
+\usepackage{etoolbox}% <-- for robustify bold fonts in S columns
+% \newrobustcmd\ubold{\DeclareFontSeriesDefault[rm]{bf}{b}\bfseries}% <-- changed
+\robustify\bfseries
+
+\usepackage{siunitx}
+\sisetup{
+    round-mode=places,
+    round-precision=1,
+    detect-weight=true,
+    %detect-inline-weight=math,
+    detect-all=true,
+    table-format=2.1
+}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{xcolor} 
+\usepackage{soul}
+\usepackage{stfloats}
+
+% For proper rendering and hyphenation of words containing Latin characters (including in bib files)
+\usepackage[T1]{fontenc}
+% For Vietnamese characters
+% \usepackage[T5]{fontenc}
+% See https://www.latex-project.org/help/documentation/encguide.pdf for other character sets
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+
+% This is not strictly necessary, and may be commented out,
+% but it will improve the layout of the manuscript,
+% and will typically save some space.
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[export]{adjustbox}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{placeins}
+
+\begin{document}
+
+
+\include{8_commands}
+\include{comments_manager}
+% If the title and author information does not fit in the area allocated, uncomment the following
+%
+%\setlength\titlebox{<dim>}
+%
+% and set <dim> to something 5cm or larger.
+
+\newcommand{\eg}{\textit{e.g.}}  %examples{e.g.}} newcommand is used to define a new command
+\newcommand{\ie}{\textit{i.e.}}  %another words
+\newcommand{\system}{\textsc{RHR}}  %this means that the command system is AHR
+
+\title{Reader Help Rerank:\\ Rerank Document for Open-Domain Question Answering}
+
+\newcommand{\sapienza}{$^1$}
+\newcommand{\sapienzafair}{$^{1,2}$}
+\newcommand{\fair}{$^2$}
+\newcommand{\uclfair}{$^{2,3}$}
+\newcommand{\ucl}{$^3$}
+
+\author{
+Hao Xiong \\
+Soochow University \\ 
+libraxionghao@gmail.com}
+
+% \robustify\bfseries
+\maketitle
+% \begin{abstract}
+% \input{0_abstract}
+% \end{abstract}
+
+% \begin{figure*}[ht!]
+%     \centering
+%     \resizebox{\textwidth}{!}{%
+%     \includegraphics[
+%     trim={0cm 0cm 0cm 0cm},    
+%     clip=true
+%     ]{figures/architecture.pdf}}
+%     \caption{
+%     High-level SEAL architecture, composed of an autoregressive LM paired with an FM-Index, for which we show the first (F) and last (L) columns of the underlying matrix (more details in Sec \ref{sec:fm-index}). The FM-index constraints the autoregressive generation (\eg, after \textit{carbon} the model is contrained to generate either \textit{tax}, \textit{dioxide} or \textit{atom} in the example) and provides the documents matching (\ie, containing) the generated ngram (at each decoding step).
+%     }
+%     \label{fig:main}
+% \end{figure*}
+
+\input{1_introduction}
+
+% \section{Related Work}
+
+% \paragraph{Retrieval with Identifiers} One way to approach retrieval with autoregressive models makes use of identifiers, \ie, string pointers to documents that are in some way easier to generate than the full document itself. In tasks where such data is available or relevant, such as Wikipedia-based entity linking (a form of page-level retrieval), titles have been shown to work well as identifiers~\citep{decao-etal-2021-autoregressive,de-cao-etal-2021-highly,de2022multilingual}. However, even on Wikipedia-based benchmarks, titles on their own are not well-suited for retrieval at passage-level, given they can only identify an article (that might contain several passages). In a different direction, \citet{tay-etal-2021-measuring} have used hierarchical clustering on contextualized embeddings to create identifiers for arbitrary spans of text. In contrast, in our work the identifiers are corpus string matches, which do not necessarily occur in just one document.
+
+% \paragraph{Term Weighting}
+% Virtually all modern approaches to string-matching-based sparse retrieval make use of a bag-of-words assumption, indexing documents with an \emph{inverted index}, a data structure mapping terms to documents or, more generally, locations in a corpus~\citep{robertson-zaragoza-2009-probabilistic}.
+% Retrieval performance in this setting depends heavily on term-weighting schemes, with many recent works proposing sophisticated, contextualized weights for both queries, and documents\citep{dai-callan-2019-context,gao-etal-2021-coil,lin-ma-2021-unicoil,mallia-etal-2021-deepimpact,dai-callan-2020-context,bai-etal-2020-sparterm,zhao-etal-2021-sparta,formal-etal-2021-splade,formal-etal-2021-spladev2}.
+% Many of these methods are also able to weigh terms that are not present in the query, addressing so-called vocabulary mismatch. In contrast, \system{} generates (and assigns scores to) ngrams of arbitrary size, using the index for both generation and retrieval. Nevertheless, this line of work is partly orthogonal to our own, as many of the proposed techniques could be used to rescore higher-order ngrams.
+
+% \paragraph{Query/Document Expansion}
+% A line of research which often involves autoregressive language models is that of document and query expansion. For example, one can augment stored documents by generating possible queries that might be answered by them~\citep{nogueira-etal-2019-doc2query,nogueira-lin-2019-docTTTTTquery}. 
+% In the opposite direction, works like GAR~\citep{mao-etal-2021-generation} augment the query by predicting helpful additional terms, such as an answer, sentence containing the answer, or the title of a document where the answer may be found.
+% We note that while query expansion bears a superficial resemblance with \system{}, the approaches are  conceptually distinct. 
+% While query expansion methods rely on a stand-alone black-box retriever, in our work the boundary between generation and retrieval is blurred, since our identifiers are grounded passage spans. 
+
+% \paragraph{Query Likelihood Models}
+% Another connected strand of research is that of query likelihood models, which, in their latest incarnations, use autoregressive models to (re)rank passages according to the probability $P(q|p)$ of a query $q$ given the passage $p$~\citep{nogueira-dos-santos-etal-2020-beyond,zhuang-zuccon-2021-tilde,lesota-etal-2021-modern}. In our case, the autoregressive architecture models the likelihood of an ngram given the query, \ie, $P(n|q)$. 
+
+% \paragraph{``Learning to Google''}
+% Recently, language models have been shown to be able to directly generate search queries for modern web search engines either with finetuning on demonstrations~\citep{Komeili2021InternetAugmentedDG,Shuster2022LanguageMT} and human preferences~\citep{nakano-2021-webgpt} or via prompting~\citep{lazaridou-etal-2022-internet}. In our case, there is no black-box retrieval system that is queried. Rather, the white-box index determines both the generated ngrams and the search process.
+
+
+
+\bibliography{mybib}
+\bibliographystyle{acl_natbib}
+
+\FloatBarrier
+
+\end{document}

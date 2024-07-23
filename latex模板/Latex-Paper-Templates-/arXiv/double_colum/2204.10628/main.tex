@@ -1,0 +1,323 @@
+% This must be in the first 5 lines to tell arXiv to use pdfLaTeX, which is strongly recommended.
+\pdfoutput=1
+
+\documentclass[11pt]{article}
+
+% Remove the "review" option to generate the final version.
+%\usepackage[review]{acl}
+\usepackage[]{acl}
+
+% Standard package includes
+\usepackage{times}
+\usepackage{latexsym}
+
+\usepackage{etoolbox}% <-- for robustify bold fonts in S columns
+% \newrobustcmd\ubold{\DeclareFontSeriesDefault[rm]{bf}{b}\bfseries}% <-- changed
+\robustify\bfseries
+
+\usepackage{siunitx}
+\sisetup{
+    round-mode=places,
+    round-precision=1,
+    detect-weight=true,
+    detect-inline-weight=math,
+    detect-all=true,
+    table-format=2.1
+}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{xcolor} 
+\usepackage{soul}
+\usepackage{stfloats}
+
+% For proper rendering and hyphenation of words containing Latin characters (including in bib files)
+\usepackage[T1]{fontenc}
+% For Vietnamese characters
+% \usepackage[T5]{fontenc}
+% See https://www.latex-project.org/help/documentation/encguide.pdf for other character sets
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+
+% This is not strictly necessary, and may be commented out,
+% but it will improve the layout of the manuscript,
+% and will typically save some space.
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[export]{adjustbox}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{placeins}
+
+
+\include{8_commands}
+\include{comments_manager}
+% If the title and author information does not fit in the area allocated, uncomment the following
+%
+%\setlength\titlebox{<dim>}
+%
+% and set <dim> to something 5cm or larger.
+
+\newcommand{\eg}{\textit{e.g.}}
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\system}{\textsc{SEAL}}
+
+\title{Autoregressive Search Engines:\\ Generating Substrings as Document Identifiers}
+
+\newcommand{\sapienza}{$^1$}
+\newcommand{\sapienzafair}{$^{1,2}$}
+\newcommand{\fair}{$^2$}
+\newcommand{\uclfair}{$^{2,3}$}
+\newcommand{\ucl}{$^3$}
+
+\author{
+Michele Bevilacqua\sapienzafair{} \
+Giuseppe Ottaviano\fair{} \
+Patrick Lewis\fair{} \\
+{\bf Wen-tau Yih\fair{} \ Sebastian Riedel\uclfair{} \ Fabio Petroni\fair{} } \\ 
+\sapienza{}Sapienza University of Rome \ \fair{}Meta AI \ \ucl{}University College London}
+
+\begin{document}
+% \robustify\bfseries
+\maketitle
+\begin{abstract}
+\input{0_abstract}
+\end{abstract}
+
+\begin{figure*}[ht!]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \includegraphics[
+    trim={0cm 0cm 0cm 0cm},    
+    clip=true
+    ]{figures/architecture.pdf}}
+    \caption{
+    High-level SEAL architecture, composed of an autoregressive LM paired with an FM-Index, for which we show the first (F) and last (L) columns of the underlying matrix (more details in Sec \ref{sec:fm-index}). The FM-index constraints the autoregressive generation (\eg, after \textit{carbon} the model is contrained to generate either \textit{tax}, \textit{dioxide} or \textit{atom} in the example) and provides the documents matching (\ie, containing) the generated ngram (at each decoding step).
+    }
+    \label{fig:main}
+\end{figure*}
+
+\input{1_introduction}
+
+\section{Related Work}
+
+\paragraph{Retrieval with Identifiers} One way to approach retrieval with autoregressive models makes use of identifiers, \ie, string pointers to documents that are in some way easier to generate than the full document itself. In tasks where such data is available or relevant, such as Wikipedia-based entity linking (a form of page-level retrieval), titles have been shown to work well as identifiers~\citep{decao-etal-2021-autoregressive,de-cao-etal-2021-highly,de2022multilingual}. However, even on Wikipedia-based benchmarks, titles on their own are not well-suited for retrieval at passage-level, given they can only identify an article (that might contain several passages). In a different direction, \citet{tay-etal-2021-measuring} have used hierarchical clustering on contextualized embeddings to create identifiers for arbitrary spans of text. In contrast, in our work the identifiers are corpus string matches, which do not necessarily occur in just one document.
+
+\paragraph{Term Weighting}
+Virtually all modern approaches to string-matching-based sparse retrieval make use of a bag-of-words assumption, indexing documents with an \emph{inverted index}, a data structure mapping terms to documents or, more generally, locations in a corpus~\citep{robertson-zaragoza-2009-probabilistic}.
+Retrieval performance in this setting depends heavily on term-weighting schemes, with many recent works proposing sophisticated, contextualized weights for both queries, and documents\citep{dai-callan-2019-context,gao-etal-2021-coil,lin-ma-2021-unicoil,mallia-etal-2021-deepimpact,dai-callan-2020-context,bai-etal-2020-sparterm,zhao-etal-2021-sparta,formal-etal-2021-splade,formal-etal-2021-spladev2}.
+Many of these methods are also able to weigh terms that are not present in the query, addressing so-called vocabulary mismatch. In contrast, \system{} generates (and assigns scores to) ngrams of arbitrary size, using the index for both generation and retrieval. Nevertheless, this line of work is partly orthogonal to our own, as many of the proposed techniques could be used to rescore higher-order ngrams.
+
+\paragraph{Query/Document Expansion}
+A line of research which often involves autoregressive language models is that of document and query expansion. For example, one can augment stored documents by generating possible queries that might be answered by them~\citep{nogueira-etal-2019-doc2query,nogueira-lin-2019-docTTTTTquery}. 
+In the opposite direction, works like GAR~\citep{mao-etal-2021-generation} augment the query by predicting helpful additional terms, such as an answer, sentence containing the answer, or the title of a document where the answer may be found.
+We note that while query expansion bears a superficial resemblance with \system{}, the approaches are  conceptually distinct. 
+While query expansion methods rely on a stand-alone black-box retriever, in our work the boundary between generation and retrieval is blurred, since our identifiers are grounded passage spans. 
+
+\paragraph{Query Likelihood Models}
+Another connected strand of research is that of query likelihood models, which, in their latest incarnations, use autoregressive models to (re)rank passages according to the probability $P(q|p)$ of a query $q$ given the passage $p$~\citep{nogueira-dos-santos-etal-2020-beyond,zhuang-zuccon-2021-tilde,lesota-etal-2021-modern}. In our case, the autoregressive architecture models the likelihood of an ngram given the query, \ie, $P(n|q)$. 
+
+\paragraph{``Learning to Google''}
+Recently, language models have been shown to be able to directly generate search queries for modern web search engines either with finetuning on demonstrations~\citep{Komeili2021InternetAugmentedDG,Shuster2022LanguageMT} and human preferences~\citep{nakano-2021-webgpt} or via prompting~\citep{lazaridou-etal-2022-internet}. In our case, there is no black-box retrieval system that is queried. Rather, the white-box index determines both the generated ngrams and the search process.
+
+\section{Background}
+
+In retrieval, the automatic system is required to return an ordered list of documents $d_1, d_2, \dots, d_n$ from a retrieval corpus $\mathcal{R}$, given a query $q$. Both queries and documents are texts, \ie, lists of tokens $\langle t_1, t_2, \dots, t_N\rangle$, where each token $t$ is drawn from a vocabulary $V$. A span of tokens in a text is called an ngram; ngrams of size $1$ are known as unigrams. We denote with $F(n, \mathcal{R})$ the frequency of an ngram $n$ in $\mathcal{R}$, \ie, the total number of times it appears in the whole retrieval corpus.
+
+\subsection{The FM-Index}
+\label{sec:fm-index}
+Our method requires a data structure that can support the efficient identification of occurring substrings to guarantee that all decoded sequences are located somewhere in the retrieval corpus. Moreover, to perform retrieval, we require the ability to identify which documents the generated ngrams appear in. 
+Neither inverted indices, (which have no efficient way to to search for phrases of arbitrary length),
+nor prefix trees, (which would force us to explicitly encode all $k$ suffixes in a document), are viable options. 
+The core data structure that satisfies our requirements is the 
+FM-index~\citep{ferragina-manzini-2000-opportunistic}, \ie, a compressed suffix array that, as a self-index, requires no additional storage for the original text. FM-index space requirements are linear in the size of the corpus, and, with small vocabularies such as those used by modern subword-based language models, is thus usually \emph{significantly smaller} than the uncompressed corpus.
+The FM-index can be used to count the frequency of any sequence of tokens $n$ in $O(|n| \text{log}|V|)$, \ie, independently from the size of the corpus itself. For constrained decoding, the list of possible token successors can be obtained in $O(|V| \text{log}|V|)$.
+Internally, the FM-index relies on the Burrows-Wheeler Transform~\citep{Burrows94ablock-sorting}, or \emph{BWT}, an invertible transformation that permutes a string to make it easier to compress, defined as follows: all the rotations of the string are sorted lexicographically and laid out in a matrix; the last column of the matrix is the strings's BWT.\footnote{Since our corpus contains multiple documents, we concatenate them with a separator token.} For example, given the string $CABAC$, the corresponding matrix would be:
+\begin{equation}
+\nonumber
+\footnotesize
+\begin{matrix}
+\textbf{F}  &   &   &   &   & \textbf{L} \\
+\$^6 & C & A & B & A & C^5 \\
+A^2 & B & A & C & \$ & C^1 \\
+A^4 & C & \$ & C & A & B^3 \\
+B^3 & A & C & \$ & C & A^2 \\
+C^5 & \$ & C & A & B & A^4 \\
+C^1 & A & B & A & C & \$^6 \\
+\end{matrix}
+\end{equation}
+
+\noindent where $\$$ is a special end-of-string token. 
+The first (\textbf{F}) and last (\textbf{L}) columns are the only ones that will be explicitly stored in the FM-index; \textbf{F} is just an array of runs (\ie, sequences of repeated tokens), due to the rotations being sorted, so it can be represented with one count for each alphabet symbol; \textbf{L}, the string's BWT, will be stored in a data structure known as the Wavelet Tree~\citep{grossi-etal-2003-highorder}, which allows efficient rank-select-access queries, while exploiting the compressibility induced by the transformation.
+% \footnote{To see how, note that characters that are close in \textbf{L} are prefixes of rotations that are likely to share a common prefix, due to the sorting, and thus they are also likely to have a concentrated distribution; this property can be exploited by very simple and local compression schemes. \giuseppe{Feel free to remove this footnote, I just wanted to have something ready if we ever want to explain where the compression comes from}}
+FM-indices have the useful property that for each symbol, the relative rank stays the same: that is, the $i$th occurrence of a symbol $\sigma$ in \textbf{F} points to the same location in the corpus of the $i$th occurrence of $\sigma$ in \textbf{L}. Thanks to this property, we can locate any string $\langle \sigma_1 , \sigma_2 , \dots , \sigma_n \rangle$ in the index by starting from $\sigma_n$ and going backwards. First, we select the contiguous range of rows corresponding to the symbol $\sigma_n$ in \textbf{F}, then we check the ranks of the first and last occurrences of $\sigma_{n-1}$ in the same range of rows in $L$. We use the ranks to select a new, smaller or equal range of rows looking up the symbol $\sigma_{n-1}$ in $F$. The procedure can be applied iteratively to find ngrams of arbitrary size.
+
+
+\section{Method}
+\label{sec:method}
+In our retrieval methodology, \system{}, we generate multiple ngrams, conditioning on a query. The ngrams are then used to find the documents they appear in within the corpus, which are then returned to the user. In Figure \ref{fig:main} we show this process at a high-level. We use our indexing structure, \ie, the FM-index to constrain decoding so that each ngram occurs at least once in the retrieval corpus. Jointly, we use the FM-index to efficiently find matching documents. Documents are ranked using the scores of the generated ngrams. 
+
+\paragraph{Autoregressive Retrieval}
+\label{ssec:generating}
+
+We generate ngrams identifiers with constrained beam search, using the FM-index to identify the set of possible next tokens in at most $O(|V| \text{log}|V|)$: tokens corresponding to unattested continuations are blocked by masking the logit to $-\infty$.
+As a result, after a single decoding pass, we get a set of ngrams ($K$), along with their autoregressively-computed probabilities according to the model. It is also trivial to find the positions in the corpus where the decoded ngrams appear, as constrained decoding already requires selecting the relevant range of rows in the FM-index.
+Note that autoregressive scoring entails monotonically decreasing scores---any string will be assigned a lower probability than any of its prefixes. To address this issue, we use fixed-length ngrams. Each document is assigned the score ($P(n|q)$) of its most probable decoded occurring ngram. 
+We refer to this as the \textbf{LM} scoring. 
+
+\paragraph{Factoring in FM-index frequencies}
+To counterbalance the monotonic probability decrease, we integrate in scoring unconditional ngram probabilities, computed as normalized index frequencies:
+\begin{equation}
+    P(n) = \frac{F(n, \mathcal{R})}{\sum_{d \in \mathcal{R}} |d|}
+\end{equation}
+This also enables us to promote \textit{distinctive} ngrams, \ie, those that have high probability according to the model and low probability according to the FM-index. We take inspiration from the theory behind TF-IDF and BM25~\citep{robertson-zaragoza-2009-probabilistic} and use the following scoring function:
+
+\begin{equation}
+    w(n,q) = \text{max}( 0, \log \frac{P(n|q)(1 - P(n))}{P(n)(1 - P(n|q))})
+\label{eq:ngram-score}
+\end{equation}
+
+\noindent
+This formulation addresses the problem of length, as the unconditional probability of an ngram will also be equal or lower than that of any of its prefixes.
+To make better use of the computational resources, we slightly modify the beam search implementation to keep track of all the partially decoded sequences that have been considered. Thanks to this, we score a larger number of ngrams than the size of the beam.
+We refer to this formulation as the \textbf{LM+FM} scoring.
+
+\paragraph{An Intersective Scoring for Multiple Ngrams}
+One problem with the previous scoring formulations is that it is impossible to break ties among documents whose highest scoring ngram is the same, as they receive exactly the same score. Moreover, it might be difficult to capture all relevant information within a document by considering only a single ngram, for instance when salient ngrams are non-contiguous (\eg, separated by unrelated text).  
+To address these issues we propose a novel scoring formulation that aggregates the contribution of multiple ngrams contained in the same document.
+To avoid repeated scoring of overlapping ngrams, for each document $d \in \mathcal{R}$ we only consider a subset of the generated ngrams $K^{(d)} \subset K$. An ngram $n$ belongs to $K^{(d)}$ 
+if there is at least one occurrence of $n$ in $d$ that does \textit{not} overlap with an occurrence of another ngram $n'$ such that a) $n' \in K^{(d)}$ b) $w(n', q) > w(n, q)$.
+The document-level score, then, is the weighted sum of all ngrams in $K^{(d)}$:
+\begin{equation}
+W(d,q) = \sum_{n \in K^{(d)}} w(n, q)^\alpha \cdot \text{cover}(n, K^{(d)})
+\label{eq:doc-score}
+\end{equation}
+
+\noindent
+where $\alpha$ is a hyperparameter and the weight $\text{cover}(n, K)$ (controlled by the second hyperparameter $\beta$) is a function of how many ngram tokens are not included in the coverage set $C(n, K) \subset V$, \ie, the union of all tokens in ngrams with a higher score. We define this coverage weight as follows: 
+
+\begin{equation}
+    \text{cover}(n, K) = 1 - \beta + \beta \cdot \frac{|\text{set}(n) \setminus C(n, K) |}{|\text{set}(n)|}
+\label{eq:cov-score}
+\end{equation}
+\noindent
+The purpose of the coverage weight is to avoid the overscoring of very repetitive documents, where many similar ngrams are matched. Note that by saving the probability distribution at the first decoding step we can compute scores for all unigrams with no additional forward pass.
+We refer to this last approach, which can be thought of as a higher-order generalization of the bag-of-words assumption, as the \textbf{LM+FM intersective} scoring. 
+
+
+\section{Experimental Setting}
+Our experimental setting evaluates \system{} on English knowledge-intensive NLP tasks. Each considered dataset is a collection of queries, each of which can be answered by looking for piece(s) of evidence in the corpus. We consider both an in vivo evaluation, in which we assess the model by looking at how well the document ranking matches with the ground truth, and, in addition, we perform a downstream evaluation, in which we feed the retrieved documents to a trained reader, that uses the documents to generate the answer.
+
+\subsection{Data}
+\label{sec:exp-data}
+
+\paragraph{Natural Questions}
+Natural Questions (NQ) is dataset containing query-document pairs, where the query is a question (\eg, ``who wrote photograph by ringo starr''), and the document is a Wikipedia page, in which a span is marked as an answer~\citep{kwiatkowski-etal-2019-natural}. We experiment on both the customary retrieval setup used by, among others,~\citet{karpukhin-etal-2020-dense} and~\citet{mao-etal-2021-generation}, and the substantially different setup used by~\citet{tay-etal-2022-transformer}. We refer to these two settings as, respectively, \textbf{NQ} and \textbf{NQ320$k$}. In NQ, retrieval is performed on an entire Wikipedia dump, chunked in around $21$M passages of 100 tokens. Performance is measured as accuracy@$k$, \ie, the fraction of instances for which at least one of the top-$k$ retrieved passages contains the answer. NQ320$k$ is a much more restricted setting, in which the retrieval set is limited to the union of all ground truth document in the training, dev or test set. Different revisions of the same Wikipedia page count as different documents. Note that the exact splits used by~\citet{tay-etal-2022-transformer}, the retrieval corpus and the preprocessing code have not been yet released at the time of writing. Therefore, we have tried to replicate the setting as closely as possible, 
+ but the exact numbers are not precisely comparable with those reported in the original paper. In NQ320$k$, performance is measured as hits@$k$, i.e, the fraction of instances for which at least one of the top-$k$ retrieved passages is in the ground truth.
+
+\paragraph{KILT} is a comprehensive benchmark collecting different datasets including question answering, fact checking, dialogue, slot filling, and entity linking~\citep{petroni-etal-2021-kilt}. All these tasks are solvable by retrieving information from a unified corpus --- a Wikipedia dump. In KILT, the evidence is usually the paragraph that contains the answer. Following~\citet{maillard-etal-2021-multi}, we have re-chunked KILT's retrieval corpus, which is originally paragraph-based, in around $36$M passages of 100 tokens. We do not use the entity linking and  ELI5 KILT tasks, where a ground truth passage is not provided in the training set. KILT's retrieval performance is measured with R-precision, a precision-oriented measure that considers only gold documents as correct answers, not just any document containing the answer. R-precision can be computed at either passage level or at page level.
+
+\subsection{\system{} configuration}
+
+\paragraph{Training}
+We finetune BART large~\citep{Lewis2019BARTDS} to generate ngrams of length $k=10$ from the ground truth document. Since there are $|d|-k$ ngrams in a document $d$, we sample (with replacement) $10$ ngrams from it, biasing the distribution in favor of ngrams with a high character overlap with the query. We also add the title of the document to the set of training ngrams. To expose the model to more possible pieces of evidence, we also add  different ``unsupervised'' examples for each document in the retrieval corpus to the training set. In each of these examples the model takes as input a uniformly sampled span from the document, and predicts either another sampled span, or the title of the page. 
+We append special tokens to the input to signal to the model a) whether the pair comes from the supervised or unsupervised training pairs (in the same spirit as the co-training task prompts used by~\citet{tay-etal-2022-transformer}) b) whether a title or span is expected as output. On KILT we train \system{} on all datasets at once.
+
+\paragraph{Training Hyperparameters}
+We finetune the model using \texttt{fairseq}. We use Adam~\citep{DBLP:journals/corr/KingmaB14} with a learning rate of $3 \cdot 10^{-5}$, warming up for $500$ updates, then using polynomial decay for at $800k$ updates, evaluating every $15k$ steps. We stop the training run if the loss on the development set stops improving for $5$ evaluation passes. We use label smoothing ($0.1$), weight decay ($0.01$), and gradient norm clipping ($0.1$). We train in batches of $4096$ tokens on $8$ GPUs. 
+
+\paragraph{Index}
+We use the C++ FM-index implementation in \texttt{sdsl-lite}.
+While the FM-index construction (which requires a sort of all rotations) takes around 6 hours in our single-threaded implementation, parallel algorithms are available~\citep{LABEIT20172}. Each document is encoded as the subword tokenization of the concatenation of the title and the passage, separated by a special token. We report in Table \ref{tab:nq-size} the index statistics for Natural Questions. As can be seen, \system{}'s FM-index is more than 7 times lighter compared to DPR's full document embeddings for exact inner product search, and needs neither a GPU for search on top of that, nor separate storage for the text itself. While vector compression methods can reduce dense retrievers' index size, this still comes at the expense of performance~\citep{yamada-etal-2021-efficient,Lewis2021BoostedDR}. In addition, our the size of  our index is less than 50\% of that of the well-optimized Lucene BM25 index used by \texttt{pyserini}, but also roughly 65\% of the uncompressed plain text itself.
+\input{tables/vanilla-nq-size}
+
+
+\paragraph{Inference} We decode for $10$ timesteps with a beam size of $15$, and set the hyperparameters $\alpha$, and $\beta$ to, respectively, $2.0$ and $0.8$. The hyperparameters have been tuned on the Natural Questions development set (§\ref{sec:exp-data}). In the constrained decoding stage, we force part of the generated ngrams to match document titles. 
+
+\input{tables/dsi-nq-main}
+\input{tables/vanilla-nq-main2}
+\input{tables/kilt-dev-rp2}
+
+\subsection{Retriever Baselines}
+
+We compare \system{} against well-established systems in the literature on each benchmark. On NQ and NQ320$k$ we also compare against our BART-based replication of DSI~\citep[\textbf{DSI-BART}]{tay-etal-2022-transformer}. On NQ320k, a page-level benchmark, we include our own replication of GENRE~\citep{decao-etal-2021-autoregressive}. Unless otherwise specified, we use \texttt{pyserini} to compute the BM25 baseline. For other systems, we either take figures from the literature, or use publicly released model predictions.
+
+\paragraph{DSI-BART} On NQ320$k$, \texttt{bert-base-cased} is used to compute the embeddings for the clustering. On regular NQ, we use the public precomputed DPR embeddings. To compare fairly against \system{}, we fine-tune the same encoder-decoder backbone, \ie, BART large.
+
+\subsection{Reader}
+For downstream results, we use the Fusion-in-Decoder abstractive reader~\citep{izacard-grave-2021-leveraging}, which takes in the query along with 100 contexts and produces a task-specific answer. We train FiD on training set predictions.
+
+\section{Results}
+\paragraph{NQ320$k$}
+
+We report results on NQ320$k$ in Table \ref{tab:dsi-main}. 
+\system{} outperforms BM25 and DSI-BART in hits@10 in all its formulations. When taking into account ngram frequencies (\ie, LM+FM), \system{} achieves even higher results than GENRE, despite the fact that this benchmark only requires page-level retrieval capabilities (that is the focus of GENRE).  Finally, our intersective formulation achieves the highest results, both in hits@1 and @10, indicating that multiple ngrams identifiers might capture complementary information, which can be aggregated for stronger performances.
+
+\input{tables/kilt-test-downstream}
+\input{tables/vanilla-nq-ablation2}
+\input{tables/predictions}
+
+\paragraph{Natural Questions}
+
+We report in Table \ref{tab:vanilla-nq} the results of our evaluation on Natural Questions, a passage-level retrieval benchmark with a larger collection of documents (\ie, \textasciitilde$21$M w.r.t. $200$k in NQ320$k$). In this setting, the gap in performance between DSI-BART and \system{} is larger, possibly because memorizing documents identifiers in the parameters of the model becomes more challenging with larger corpora. 
+Remarkably, the intersective formulation of \system{} achieves results comparable or superior to more established retrieval paradigms (\eg, BM25, DPR and GAR). 
+To better understand the generalization capabilities of our retrieval solution we use the question/answer overlap split of~\citet{lewis-etal-2021-question}. This study reveals that \system{} achieves the highest performance for question/answer pairs never seen during training (\ie, no overlap), suggesting a better ability to generalize to completely
+novel questions with novel answers (\eg, $3.5$ points better than GAR on average). 
+
+\paragraph{KILT}
+We report retrieval results at passage level on the KILT benchmark in Table \ref{tab:kilt-dev-rp}.\footnote{We report page-level and KILT-score results in the Appendix (§\ref{sec:additional-kilt}).} \system{} outperforms DPR by more than 10  points on average in passage-level R-precision, indicating that our method is more precise in surfacing ground truth evidence as the first result. 
+Moreover, \system{} also performs better than MT-DPR (multi-task DPR) even when the latter is pretrained on tens of millions of questions from PAQ~\citep{lewis-etal-2021-paq}, a technique that can drastically improve results and that could potentially bring benefits to our method as well (a task we leave for future work).
+When it comes to downstream performances  (Table \ref{tab:kilt-test-downstream}), FiD with passages retrieved by intersective \system{} establishes a new state-of-the-art on 4 datasets out of 7 (FEVER, zsRE, NQ, HoPo), and achieves very competitive results on the remaining 3. 
+
+\paragraph{Speed and constrained decoding} The inference speed of \system{} is directly proportional to the beam size, with a limited overhead added by constrained decoding. On the Natural Questions test set, for instance, retrieval with the intersective scoring requires on our 1 GPU evaluation setup \textasciitilde16~minutes and \textasciitilde35~minutes with, respectively, a beam size of $5$ or $15$.~\citet{mao-etal-2021-generation} report a lower runtime for GAR (\textasciitilde5~minutes), and a comparable one for DPR (\textasciitilde30~minutes). 
+Note that more efficient approaches to constrained decoding have been proposed (\eg,~\citet{de-cao-etal-2021-highly}) and we leave their application to \system{} as future work. 
+
+\paragraph{Ablation studies}
+In Table \ref{tab:ablation} we report performances on Natural Questions for various configurations of \system{}.
+While, in general, performances increase with a larger beam, diminishing returns (or even a slight performance decrease) are encountered between a value of $10$ and $15$. Disabling constrained decoding and discarding a posteriori all generated ngrams that don't appear in the corpus,
+results in slightly lower performances. 
+
+\paragraph{Qualitative Analysis}
+In Table \ref{tab:qualitative}, we show examples of ngrams predicted by \system{} (trained on KILT) given the query ``can you predict earthquakes''. \system{} is able to rephrase
+the query in ways that preserve its lexical material producing ngrams such as \textit{earthquakes can be predicted}, \textit{used to predict earthquakes} etc. Morevoer, the model is also able to explore more diverse regions of the output space, overcoming the vocabulary mismatch problem: ngrams contain related tokens like the subword \textit{seism-} and the word \textit{forecast}. \system{}'s LM+FM scoring is also able to assign a score below $0$ (and, thus, exclude from the search), unrelated ngrams that are considered by the beam because of their promising start, such as ``Seismic risk in Malta @@''. 
+
+\section{Discussion}
+With \system{} we present solution that could potentially find applications outside information retrieval (\eg, enforce generated substrings come from a white list of trusted sources).
+While we conduct our experiments with a model of \textasciitilde$400$M parameters (\ie, BART) for fast iterations, we believe the use of larger models could considerably improve performance. Changing the model would not affect the size of the index nor the cost of using it --- $O(|n|\text{log}|V|)$ for finding an ngram $n$. 
+Moreover, we believe that indexing very large corpora (\eg, the web) could be done more efficiently than existing attempts (\eg, \citet{piktus-etal-2021-web}) given the light memory footprint. Finally, dynamic variants~\citep{Gerlach2007DynamicFF,Salson2009a} could allow the update of the FM-index on the fly without the need of re-indexing. While out of the scope of the current paper, we plan to tackle some of these scaling challenges in future work.
+
+\section{Conclusion}
+In this paper we present \system{}, a novel retrieval system that combines an autoregressive language model with a compressed full-text substring index. Such combination allows to constraint the generation of existing ngrams in a corpus and to jointly retrieve all the documents containing them.
+Empirically, we show an improvement of more than $10$ points in average passage-level R-precision on KILT, and establish new state-of-the-art downstream performance on 4 out 7 datasets when paired with a reader model. 
+While our results show that \system{} could already compete with more established retrieval systems, we believe there is potential in exploring the use of existing (or yet to come) larger autoregressive models.
+
+
+\section*{Acknowledgements}
+We thank Aleksandra Piktus, Edoardo Barba, Niccolò Campolungo, and Pere-Lluis Huguet Cabot for their helpful comments and suggestions.
+
+\bibliography{anthology,custom}
+\bibliographystyle{acl_natbib}
+
+\FloatBarrier
+
+
+\appendix
+
+\input{tables/kilt-test-rp-page}
+\input{tables/kilt-test-kilt-scores}
+\FloatBarrier
+
+\section{Additional KILT results}
+\label{sec:additional-kilt}
+We report in Table \ref{tab:kilt-test-rp-page} page-level results on the KILT test set. On most datasets, \system{} obtains results which are comparable or better than other systems performing page-level retrieval. Furthermore, are results are within two points of the average performance of GENRE, \ie, a system that directly targets the page-level setting. Comparing KILT-scores (Table \ref{tab:kilt-test-kilt-scores}), \ie, a metric combining downstream performances and page-level R-precision, we achieve state-of-the-art results on 4 out of 7 datasets.
+
+\section{Impact of unsupervised examples}
+\system{} is trained with both supervised and unsupervised examples. In Table \ref{tab:nq-ablation-data} we report ablated results, by which we assess the importance of both kind of training examples. The addition of unsupervised examples improves purely supervised training by one point (A@100). Only training with unsupervised examples results in performances which are slightly below BM25's.
+\input{tables/vanilla-nq-ablation-data}
+
+\end{document}

@@ -1,0 +1,74 @@
+\newcounter{srCounter}
+\newif\ifsrvar
+\srvartrue
+%\trvarfalse
+\ifsrvar
+\newcommand{\seb}[1]{{\small \color{red} \refstepcounter{srCounter}\textsf{[SR]$_{\arabic{srCounter}}$:{#1}}}}
+\else
+\newcommand{\seb}[1]{}
+\fi
+
+\newcounter{fpCounter}
+\newif\iffpvar
+\fpvartrue
+%\trvarfalse
+\iffpvar
+\newcommand{\fabio}[1]{{\small \color{blue} \refstepcounter{fpCounter}\textsf{[FP]$_{\arabic{fpCounter}}$:{#1}}}}
+\else
+\newcommand{\fabio}[1]{}
+\fi
+
+\newcounter{mbCounter}
+\newif\ifmbvar
+\mbvartrue
+%\mbvarfalse
+\ifmbvar
+\newcommand{\michele}[1]{{\small \color{purple} \refstepcounter{mbCounter}\textsf{[MB]$_{\arabic{mbCounter}}$:{#1}}}}
+\else
+\newcommand{\michele}[1]{}
+\fi
+
+\newcounter{syCounter}
+\newif\ifsyvar
+\syvartrue
+%\trvarfalse
+\ifsyvar
+\newcommand{\scott}[1]{{\small \color{violet} \refstepcounter{syCounter}\textsf{[SY]$_{\arabic{syCounter}}$:{#1}}}}
+\else
+\newcommand{\scott}[1]{}
+\fi
+
+\newcounter{plCounter}
+\newif\ifplvar
+\plvartrue
+%\plvarfalse
+\ifplvar
+\newcommand{\patrick}[1]{{\small \color{green} \refstepcounter{plCounter}\textsf{[PL]$_{\arabic{plCounter}}$:{#1}}}}
+\else
+\newcommand{\patrick}[1]{}
+\fi
+
+\newcounter{goCounter}
+\newif\ifplvar
+\plvartrue
+%\plvarfalse
+\ifplvar
+\newcommand{\giuseppe}[1]{{\small \color{brown} \refstepcounter{goCounter}\textsf{[GO]$_{\arabic{goCounter}}$:{#1}}}}
+\else
+\newcommand{\giuseppe}[1]{}
+\fi
+
+%\iftrue
+\iffalse
+\renewcommand{\fabio}[1]{}
+\renewcommand{\seb}[1]{}
+\renewcommand{\piktus}[1]{}
+\renewcommand{\michele}[1]{}
+\renewcommand{\patrick}[1]{}
+\renewcommand{\angela}[1]{}
+\renewcommand{\jt}[1]{}
+\renewcommand{\scott}[1]{}
+\renewcommand{\giuseppe}[1]{}
+\fi
+
+\newcommand{\citetodo}[1]{{\color{red}(#1)}}

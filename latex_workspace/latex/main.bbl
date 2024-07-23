@@ -1,0 +1,49 @@
+\begin{thebibliography}{9}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Chen et~al.(2017)Chen, Fisch, Weston, and Bordes}]{chen2017reading}
+Danqi Chen, Adam Fisch, Jason Weston, and Antoine Bordes. 2017.
+\newblock Reading wikipedia to answer open-domain questions.
+\newblock \emph{arXiv preprint arXiv:1704.00051}.
+
+\bibitem[{Gao et~al.(2021)Gao, Dai, and Callan}]{gao2021rethink}
+Luyu Gao, Zhuyun Dai, and Jamie Callan. 2021.
+\newblock Rethink training of bert rerankers in multi-stage retrieval pipeline.
+\newblock In \emph{Advances in Information Retrieval: 43rd European Conference on IR Research, ECIR 2021, Virtual Event, March 28--April 1, 2021, Proceedings, Part II 43}, pages 280--286. Springer.
+
+\bibitem[{Joshi et~al.(2017)Joshi, Choi, Weld, and Zettlemoyer}]{joshi2017triviaqa}
+Mandar Joshi, Eunsol Choi, Daniel~S Weld, and Luke Zettlemoyer. 2017.
+\newblock Triviaqa: A large scale distantly supervised challenge dataset for reading comprehension.
+\newblock \emph{arXiv preprint arXiv:1705.03551}.
+
+\bibitem[{Karpukhin et~al.(2020)Karpukhin, O{\u{g}}uz, Min, Lewis, Wu, Edunov, Chen, and Yih}]{karpukhin2020dense}
+Vladimir Karpukhin, Barlas O{\u{g}}uz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, and Wen-tau Yih. 2020.
+\newblock Dense passage retrieval for open-domain question answering.
+\newblock \emph{arXiv preprint arXiv:2004.04906}.
+
+\bibitem[{Kwiatkowski et~al.(2019)Kwiatkowski, Palomaki, Redfield, Collins, Parikh, Alberti, Epstein, Polosukhin, Devlin, Lee et~al.}]{kwiatkowski2019natural}
+Tom Kwiatkowski, Jennimaria Palomaki, Olivia Redfield, Michael Collins, Ankur Parikh, Chris Alberti, Danielle Epstein, Illia Polosukhin, Jacob Devlin, Kenton Lee, et~al. 2019.
+\newblock Natural questions: a benchmark for question answering research.
+\newblock \emph{Transactions of the Association for Computational Linguistics}, 7:453--466.
+
+\bibitem[{Mao et~al.(2021)Mao, He, Liu, Shen, Gao, Han, and Chen}]{mao2021rider}
+Yuning Mao, Pengcheng He, Xiaodong Liu, Yelong Shen, Jianfeng Gao, Jiawei Han, and Weizhu Chen. 2021.
+\newblock Rider: Reader-guided passage reranking for open-domain question answering.
+\newblock \emph{arXiv preprint arXiv:2101.00294}.
+
+\bibitem[{Nogueira and Cho(2019)}]{nogueira2019passage}
+Rodrigo Nogueira and Kyunghyun Cho. 2019.
+\newblock Passage re-ranking with bert.
+\newblock \emph{arXiv preprint arXiv:1901.04085}.
+
+\bibitem[{Sachan et~al.(2022)Sachan, Lewis, Joshi, Aghajanyan, Yih, Pineau, and Zettlemoyer}]{sachan2022improving}
+Devendra~Singh Sachan, Mike Lewis, Mandar Joshi, Armen Aghajanyan, Wen-tau Yih, Joelle Pineau, and Luke Zettlemoyer. 2022.
+\newblock Improving passage retrieval with zero-shot question generation.
+\newblock \emph{arXiv preprint arXiv:2204.07496}.
+
+\bibitem[{Sachan et~al.(2021)Sachan, Patwary, Shoeybi, Kant, Ping, Hamilton, and Catanzaro}]{sachan2021end}
+Devendra~Singh Sachan, Mostofa Patwary, Mohammad Shoeybi, Neel Kant, Wei Ping, William~L Hamilton, and Bryan Catanzaro. 2021.
+\newblock End-to-end training of neural retrievers for open-domain question answering.
+\newblock \emph{arXiv preprint arXiv:2101.00408}.
+
+\end{thebibliography}

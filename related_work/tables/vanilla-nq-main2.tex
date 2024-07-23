@@ -1,0 +1,23 @@
+\begin{table*}[ht]
+\footnotesize
+\centering
+
+\begin{tabular}{lSSS|SSSS|S}
+\toprule
+\multirow{2}{*}{\textbf{System}} & \multicolumn{3}{c|}{\textbf{accuracy@\textit{k}}} & \multicolumn{4}{c|}{\textbf{Overlap? (A@100)}} & {\multirow{2}{*}{\textbf{EM}}} \\
+ & {\textbf{5}} & {\textbf{20}} & {\textbf{100}} & {ans. \cmark } & {\xmark} & {ques. \cmark} & {\xmark} & \\
+\midrule
+BM25 & 43.6 & 62.9 & 78.1 & 82.9 & 70.1 & 80.9 & 76.6 &  40.42 \\
+DPR \citep{karpukhin-etal-2020-dense} & \bfseries 68.3  & \bfseries 80.1 & 86.1 & 91.4 & 76.8 & 93.2 & 83.2 & 47.2 \\ 
+GAR \citep{mao-etal-2021-generation} & 59.3 & 73.9 & 85.0 & \bfseries 91.6 & 74.4 & \bfseries 94.1 & 80.4 & 46.15 \\
+DSI-BART & 28.3 & 47.3 & 65.5 & 77.8 & 44.2 & 84.9 & 57.7 & 31.4 \\
+\citet{izacard-grave-2021-leveraging} & {-} & {-} & {-} & {-} & {-} & {-} & {-} & \bfseries 48.2 \\
+\midrule
+\system{} (LM, $|n|=5$) & 40.5 & 60.2 & 73.1 & 82.2 & 57.1 & 85.2 & 64.9 & 36.0 \\
+\system{} (LM+FM) & 43.9 & 65.8 & 81.1 & 86.9 & 70.9 & 89.5 & 78.1 & 42.9 \\
+\system{} (LM+FM, intersective) & 61.3 & 76.2 & \bfseries 86.3 & 91.2 & \bfseries 77.7 & 93.2 & \bfseries 84.1 & 48.0 \\
+\bottomrule
+\end{tabular}
+\caption{Retrieval results on the NQ test set. Column blocks (left to right): retrieval results (accuracy@5/20/100); retrieval results on the test splits of \citet{lewis-etal-2021-question}, partitioned according to whether the query/answer is a paraphrase of one in the training set; downstream performances (exact match). Except for \citet{izacard-grave-2021-leveraging}, all downstream results are computed with the same FiD reader trained on DPR predictions. Best in bold.}
+\label{tab:vanilla-nq}
+\end{table*}

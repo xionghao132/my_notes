@@ -1,0 +1,30 @@
+\begin{table}[t]
+\footnotesize
+% \setlength{\tabcolsep}{6pt}
+\centering
+
+\begin{tabular}{l|SS}
+\toprule
+%  \textbf{System} & {\textbf{hits@1}} & {\textbf{hits@10}} \\
+
+
+\multirow{2}{*}{\textbf{System}} & \multicolumn{2}{c}{\textbf{hits@\textit{k}}} \\
+ & {\textbf{1}} & {\textbf{10}} \\
+
+\midrule
+BM25 (\texttt{gensim}) & 15.3 & 44.5 \\
+BM25 & 22.7 & 59.0 \\
+DSI-BART  & 25.0 & 63.6 \\
+GENRE & \bfseries 26.3 & 71.2 \\
+\midrule
+\system{} (LM, $|n|=3$) & 21.3 & 66.5 \\
+\system{} (LM, $|n|=4$) & 22.2 & 68.2 \\
+\system{} (LM, $|n|=5$) & 22.6 & 68.7 \\
+\system{} (LM+FM)           & 25.3 & 72.0 \\
+\system{} (LM+FM, intersect.)      & \bfseries 26.3  & \bfseries 74.5 \\
+\bottomrule
+\end{tabular}
+%}
+\caption{Results on NQ320$k$. Reporting hits@1 and hits@10. Best in bold.}
+\label{tab:dsi-main}
+\end{table}
