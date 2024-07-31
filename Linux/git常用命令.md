@@ -12,9 +12,9 @@
 
 > git在敲代码的时候可以用tab补全
 
-```
-git clone http://...  //复制对应网址
-git config --list    //显示所有设置参数
+```sh
+git clone http://...  #复制对应网址
+git clone https://..  别名    #克隆仓库换别名
 ```
 
 ![](https://gitee.com/HB_XN/picture/raw/master/img/20210428170033.png)
@@ -32,6 +32,7 @@ git init   //初始化 获得.git的版本库
 经常我们要访问外网的东西，例如`github`和`hugging face`时候，需要设置本地电脑的代理。
 
 ```sh
+ git config --list    #显示所有设置参数
  git config --global https.proxy http://127.0.0.1:7890
  git config --global http.proxy http://127.0.0.1:7890
 ```
