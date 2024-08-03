@@ -92,6 +92,14 @@ git remote -v    //显示与哪个仓库建立了联系
 git remote show origin(仓库名)  //显示更加详细 与分支有关
 ```
 
+### 改名
+
+```sh
+git remote rename origin new_name
+```
+
+
+
 ### 添加仓库
 
 ```
@@ -113,10 +121,10 @@ git remote rm origin
 
 ### 抓取和拉取文件
 
-```
-git fetch           //从远程仓库抓取最新数据 不会自动出现
-git merge origin/master    //手动合并到工作区，出现到工作区
-git pull origin master     //拉取master分支 等同于 fetch和merge两个操作
+```sh
+git fetch           #从远程仓库抓取最新数据 不会自动出现   将远程仓库内容拉取到本地仓库
+git merge origin/master    #手动合并到工作区，出现到工作区  
+git pull origin master     #拉取master分支 等同于 fetch和merge两个操作  将远程仓库内容拉取到本地仓库并合并到当前分支
 ```
 
  	==注意：==如果当前仓库不是从远程仓库克隆的，而是本地创建的仓库，并且仓库中存在文件，我们再从远程仓库拉取文件的时候会报错（fatal refusing to merge unrelated histories）
@@ -187,16 +195,18 @@ git push origin -d b2   //删除远程分支b2
 
 ### 列出标签
 
-```
-git tag v0.1(tagName)     //新建一个tag
-git tag               //查看标签
-git show  v0.1                   //查看tag信息
+```sh
+git tag v0.1(tagName)     #新建一个tag  轻量标签  
+git tag -a v0.1 -m 'my version 1.4'  #附注标签
+git tag               #查看标签
+git show  v0.1                   #查看tag信息
 ```
 
 ### 推送标签
 
-```
-git push origin v0.1    //将标签推送到远程仓库
+```sh
+git push origin v0.1    #将标签推送到远程仓库
+git push origin --tags  #一次性推送很多标签
 ```
 
 ### 检出标签
