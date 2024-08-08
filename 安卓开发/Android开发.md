@@ -837,3 +837,67 @@ public class OrderBReceiver extends BroadcastReceiver {
 }
 ```
 
+
+
+# 前端框架XUI
+
+[饭后Android 第三餐-XUI框架（XUI介绍，使用方法，控件使用（九个Button，导航栏，可伸缩布局，顶部弹出框））_android xui-CSDN博客](https://blog.csdn.net/qq_46526828/article/details/108904260)
+
+[Button · xuexiangjys/XUI Wiki (github.com)](https://github.com/xuexiangjys/XUI/wiki/Button)
+
+## Button
+
+```xml
+<com.xuexiang.xui.widget.button.ButtonView
+       style="@style/ButtonView.Green"
+        android:id="@+id/task2_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        app:textRadius="10dp"
+        />
+```
+
+
+
+```xml
+<com.xuexiang.xui.widget.button.roundbutton.RoundButton
+            style="@style/RoundButton.Auto"
+    		android:id="@+id/task2_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            app:textRadius="10dp"
+            android:text="默认圆角大小"
+            android:enabled="false"/>
+```
+
+
+
+```xml
+<com.xuexiang.xui.widget.button.shinebutton.ShineButton
+            android:id="@+id/shine_button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            app:sb_checked_color="#f26d7d"
+            app:sb_icon_image="@drawable/ic_pre"
+            app:sb_normal_color="@android:color/darker_gray" />
+```
+
+
+
+## Spinner
+
+```xml
+ <com.xuexiang.xui.widget.spinner.materialspinner.MaterialSpinner
+            style="@style/Material.SpinnerStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:enabled="true"
+            app:ms_entries="@array/mood_array"
+            />
+```
+
