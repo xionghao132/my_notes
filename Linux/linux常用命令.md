@@ -86,9 +86,10 @@ vi 文件名    //打开文件
 ```sh
 tar -zcvf ab.tar aa.txt bb.txt  //打包和压缩
 ：z：调用gzip压缩命令进行压缩
-  c：打包文件
-  v：显示运行过程
-  f：指定文件名
+  c：打包文件 create
+  v：显示运行过程 verbose
+  f：指定文件名 filename
+  x: 解压使用的 extract
 tar -xvf ab.tar -C /usr------C代表指定解压的位置
 ```
 
