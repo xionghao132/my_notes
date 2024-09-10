@@ -604,3 +604,110 @@ s分屏打开文件
 保持光标位置不变（不变是相对的，当光标所在行超出光标可活动行范围时，光标保持在最上/最下可活动行）移动屏幕：向上翻页ctrl + y，向下翻页ctrl + e。
 滚动半屏：向上滚动半屏ctrl + u，向下滚动半屏ctrl + d。
 滚动一屏：向上滚动一屏ctrl + b，向下滚动一屏ctrl + f。
+
+
+
+## VscodeVim
+
+settings.json (user)
+
+```json
+{   
+// vim设置
+
+     // 绑定vim前导键
+  "vim.leader": "<space>",
+  // 启用easymotion插件
+  "vim.easymotion": true,
+  // 启用系统粘贴板作为vim寄存器
+  "vim.useSystemClipboard": true,
+// 由vim接管ctrl+any的按键，而不是vscode
+  "vim.useCtrlKeys": true,
+// 突出显示与当前搜索匹配的所有文本
+  "vim.hlsearch": true,
+  // 下面定义的按键将交由vscode进行处理，而不是vscode-vim插件
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false,
+    "<C-x>":false,
+    "<C-c>": false
+  },
+//插入模式下的非递归按键绑定
+    "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+   // 普通模式下的非递归按键绑定
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "H"
+      ],
+      "after": [
+        "^"
+      ]
+    },
+    {
+      "before": [
+        "L"
+      ],
+      "after": [
+        "$"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "z",
+      ],
+      "commands": [
+        "editor.toggleFold"
+      ]
+    },
+    {
+            // toggle easy motion, but two word
+            "before": [ "f" ],
+            "after": [ "leader", "leader", "2", "s" ],
+    },
+    {
+      // toggle easy motion
+        "before": [ "s" ],
+        "after": [ "leader", "leader",  "s" ],
+    },
+{
+            "before": ["<C-h>"],  // Ctrl+H
+            "after": ["<C-w>", "h"]  // Ctrl+W + h
+        },
+        {
+            "before": ["<C-j>"],  // Ctrl+H
+            "after": ["<C-w>", "j"]  // Ctrl+W + h
+        },
+        {
+            "before": ["<C-k>"],  // Ctrl+H
+            "after": ["<C-w>", "k"]  // Ctrl+W + h
+        },
+        {
+            "before": ["<C-h>"],  // Ctrl+H
+            "after": ["<C-w>", "k"]  // Ctrl+W + h
+        },
+        {
+            "before": ["<Leader>", "n"],
+            "after": ["<C-d>"]
+        },
+        {
+            "before": ["<Leader>", "b"],
+            "after": ["<C-u>"]
+        },
+  ],
+"extensions.experimental.affinity": {
+  "vscodevim.vim": 1
+},
+"editor.lineNumbers": "relative",
+  // 可视模式下的非递归按键绑定
+  "vim.operatorPendingModeKeyBindings": [],
+}
+```
+
+[vscode + vim 全键盘操作高效搭配方案 - 云崖君 - 博客园 (cnblogs.com)](https://www.cnblogs.com/YunyaSir/p/15522565.html)
