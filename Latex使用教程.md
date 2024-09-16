@@ -306,7 +306,47 @@ $$
 
 [【LaTeX】新手教程：从入门到日常使用 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/456055339)
 
+## 库
 
+```latex
+\usepackage{listings}
+\usepackage[dvipsnames]{xcolor}
+\lstset{
+    escapeinside={(*@}{@*)},
+    showstringspaces=false,
+    columns=flexible,
+    breaklines=true,
+    breakindent=0pt,
+     keywordstyle=\bfseries\color{NavyBlue},
+     language=Python, % 设置语言,
+     basicstyle=\ttfamily, % 设置字体族
+     morekeywords={} % 设置更多的关键字，用逗号分隔
+}
+
+% lstlisting环境
+\begin{lstlisting}  % Python代码
+import random
+import collections
+Card = collections.namedtuple('Card', ['rank', 'suit'])
+
+class FrenchDesk:
+    ranks = [str(n) for n in range(2, 11)] + list('JQKA')
+    suits = 'spades diamonds clubs hearts'.split()
+    
+    def __init__(self):
+        self._cards = [Card(rank, suit) for rank in self.ranks for suit in self.suits]
+        
+    def __len__(self):
+        return len(self._cards)
+        
+    def __getitem__(self, position):
+        return self._cards[position]
+desk = FrenchDesk()
+\end{lstlisting}
+\end{document}
+```
+
+[不一样的 LaTeX 教程：使用 listings 宏包美化代码 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/464141424)
 
 ## 实战经验
 
