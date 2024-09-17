@@ -308,6 +308,8 @@ $$
 
 ## 库
 
+### listings
+
 ```latex
 \usepackage{listings}
 \usepackage[dvipsnames]{xcolor}
@@ -347,6 +349,23 @@ desk = FrenchDesk()
 ```
 
 [不一样的 LaTeX 教程：使用 listings 宏包美化代码 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/464141424)
+
+### verbatim
+
+直接将内容抄录
+
+verbatim环境可原样输出其中的文本，忽视TeX命令
+
+```latex
+\begin{verbatim}
+
+\usepackage{times}
+\usepackage{latexsym}
+
+\end{verbatim}
+```
+
+
 
 ## 实战经验
 
