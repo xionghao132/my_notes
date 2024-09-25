@@ -131,6 +131,12 @@ lib文件使用$LD_LIBRARY_PATH
 
 
 
+安装opencv-python 报错 缺少libxet.so.6文件，使用下面网址进行安装。
+
+[libXext-1.3.3-3.el7.x86_64.rpm – 查RPM (crpm.cn)](https://crpm.cn/libXext-1-3-3-3-el7-x86_64-rpm/)
+
+
+
 ### tmux安装
 
 源码下载：
