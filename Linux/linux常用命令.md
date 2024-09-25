@@ -123,6 +123,21 @@ ln -s log2013.log link2013
 ln log2013.log ln2013
 ```
 
+## 传输文件
+
+linux系统之间传输文件还是非常方便的，主要是一些模型文件很大，可以直接进行传输，不需要下载到本地然后传输。
+
+如果有cpu服务器，也可以做这样传输来做备份。
+
+```sh
+#传输文件
+scp /home/space/music/1.mp3 root@www.runoob.com:/home/root/others/music   
+#传输文件夹
+scp -r local_folder remote_username@remote_ip:remote_folder 
+```
+
+
+
 
 
 ## 其他常用命令
