@@ -165,7 +165,7 @@ make && make install
 ```bash
 #环境变量设置
 #将下面的语句添加到.bashrc中
-export $PATH="$HOME/.local/bin:$PATH"
+export $PATH="/data/xhao/software/tmux/bin/bin:$PATH"
 #重载环境
 source .bashrc
 ```
