@@ -12,7 +12,17 @@ python3 -m pdb filename.py
 
 ```python3
 import pdb;pdb.set_trace()
+
+breakpoint()
 ```
+
+如果代码在运行的时候，忘记删除breakpint()
+
+``` python
+import builtins; builtins.breakpoint = lambda: None  # 临时禁用 breakpoint()
+```
+
+
 
 ## 命令
 
