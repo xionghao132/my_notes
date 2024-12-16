@@ -278,7 +278,7 @@ tmux swap-pane -D
 
 * 窗格快捷键
 
-1. `Ctrl+b %`：划分左右两个窗格。
+1. `Ctrl+b %`：划分左右两个窗格，或者`Ctrl+b v`。
 2. `Ctrl+b "`：划分上下两个窗格。
 3. `Ctrl+b <arrow key>`：光标切换到其他窗格。`<arrow key>`是指向要切换到的窗格的方向键，比如切换到下方窗格，就按方向键`↓`。
 4. `Ctrl+b ;`：光标切换到上一个窗格。
@@ -332,6 +332,128 @@ tmux rename-window <new-name>
    - `Ctrl+b <number>`：切换到指定编号的窗口，其中的`<number>`是状态栏上的窗口编号。
    - `Ctrl+b w`：从列表中选择窗口。
    - `Ctrl+b ,`：窗口重命名。
+   - `Ctrl+b x`：关闭当前窗口
+
+### 通道
+
+在一个tmux中，继续创建一个通道。
+
+```sh
+tmux -S Path  #Path随便写一个名称就行 直接写temp，会创建一个temp文件
+tmux -S temp a -t  #
+
+tmux -S /path/to/socket list-sessions
+#简化
+tmux -S /path/to/socket ls
+tmux -S /path/to/socket kill-session -t #删除
+```
+
+### 配置文件
+
+`.tmux.conf` 通用配置文件
+
+用户级别配置tmux配置文件默认在`~/.tmux.conf`，如果存在会优先读取这个文件
+
+```sh
+
+# 设置新前缀为 Ctrl+a
+set -g prefix2 C-a
+bind C-a send-prefix -2
+#鼠标点击
+set -g mouse on
+# 状态栏刷新时间
+set -g status-interval 1
+
+# 添加载在配置文件指令为
+unbind '"'
+bind - splitw -v -c '#{pane_current_path}' # 垂直方向新增面板，默认进入当前目录
+unbind %
+bind =  splitw -h -c '#{pane_current_path}' # 水平方向新增面板，默认进入当前目录
+bind r source-file ~/.tmux.conf \; display-message "Config reloaded.."
+bind -r k select-pane -U # 绑定k为↑
+bind -r j select-pane -D # 绑定j为↓
+bind -r h select-pane -L # 绑定h为←
+bind -r l select-pane -R # 绑定l为→
+
+# 复制模式更改为 vi 风格
+# # 进入复制模式 快捷键：prefix + [
+setw -g mode-keys vi # 开启vi风格后，支持vi的C-d、C-u、hjkl等快捷键
+# --------------------------------------------------- session pane -----------------------------------------------------------
+
+set -g base-index 1 # 设置窗口的起始下标为1
+set -g pane-base-index 1 # 设置面板的起始下标为1
+
+# 可以让我们用Alt 123 去切换Window
+unbind n
+unbind p
+unbind 0
+unbind 1
+unbind 2
+unbind 3
+unbind 4
+unbind 5
+unbind 6
+unbind 7
+unbind 8
+unbind 9
+unbind 0
+bind -r C-p previous-window
+bind -r C-n next-window
+
+bind -n M-1 select-window -t 0
+bind -n M-1 select-window -t 1
+bind -n M-2 select-window -t 2
+bind -n M-3 select-window -t 3
+bind -n M-4 select-window -t 4
+bind -n M-5 select-window -t 5
+bind -n M-6 select-window -t 6
+bind -n M-7 select-window -t 7
+bind -n M-8 select-window -t 8
+bind -n M-9 select-window -t 9
+
+# pane navigation
+bind 1 select-pane -t:.1
+bind 2 select-pane -t:.2
+bind 3 select-pane -t:.3
+bind 4 select-pane -t:.4
+bind 5 select-pane -t:.5
+bind 6 select-pane -t:.6
+bind 7 select-pane -t:.7
+bind 8 select-pane -t:.8
+bind 9 select-pane -t:.9
+bind 0 select-pane -t:.10
+# --------------------------------------------------- 其他 -----------------------------------------------------------
+set -s focus-events on
+set-window-option -g automatic-rename on
+set-window-option -g monitor-activity on
+
+# --------------------------------------------------- 状态栏 -----------------------------------------------------------
+set -wg window-status-format " #I #W " # 状态栏窗口名称格式
+set -wg window-status-current-format " #I:#W#F " # 状态栏当前窗口名称格式(#I：序号，#w：窗口名称，#F：间隔符)
+set -wg window-status-separator "" # 状态栏窗口名称之间的间隔
+set -g message-style "bg=#202529, fg=#91A8BA" # 指定消息通知的前景、后景色
+
+#自定义状态栏
+#set -g status-right '#[fg=green]#H #[fg=blue]%Y-%m-%d %H:%M'
+
+# 自定义状态栏
+set -g status-interval 1 # 状态栏刷新时间
+set -g status-justify left # 状态栏列表左对齐
+setw -g monitor-activity on # 非当前窗口有内容更新时在状态栏通知
+
+# set -g status-left "Zorn #W" # 状态栏左侧内容
+# # set -g status-fg yellow # 设置状态栏前景黄色
+# # set -g status-style "bg=black, fg=yellow" # 状态栏前景背景色
+#
+# # set -g status-right 'zorn@machine #{continuum_status}' # 状态栏右侧内容
+# # set -g status-left-length 300 # 状态栏左边长度300
+# # set -g status-right-length 500 # 状态栏左边长度500
+#
+# # set -wg window-status-current-style "bg=black" # 状态栏当前窗口名称的样式
+# # set -wg window-status-current-style "bg=red" # 状态栏当前窗口名称的样式
+# # set -wg window-status-last-style "fg=red" # 状态栏最后一个窗口名称的样式
+set -g status-left "🐶 #W" # 状态栏左侧内容
+```
 
 
 
@@ -350,6 +472,5 @@ tmux info
 # 重新加载当前的 Tmux 配置
 tmux source-file ~/.tmux.conf
 ```
-
 
 [Tmux 使用教程 - 阮一峰的网络日志 (ruanyifeng.com)](https://www.ruanyifeng.com/blog/2019/10/tmux.html)
