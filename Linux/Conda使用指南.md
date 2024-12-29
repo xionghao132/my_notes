@@ -120,6 +120,34 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/m
 conda config --set show_channel_urls yes
 ```
 
+### 配置文件
+
+`~/.condarc`
+
+```sh
+envs_dirs:
+  - /data/conda/envs
+pkgs_dirs:
+  - /data/conda/pkgs
+```
+
+直接修改保存就行，下次创建的内容会直接在新设置的位置
+
+
+
+### 导出环境文件
+
+环境迁移
+
+```sh
+#首先要激活对应的环境
+conda env export > environment.yml
+
+conda env create --file environment.yml
+```
+
+
+
 ## pip使用指南
 
 ###  卸载已安装的库
