@@ -48,8 +48,18 @@ for output in outputs:
 
 启动服务器，默认情况http://localhost:8000，当然也可以加入`host` 和`port`去指定地址
 
+这个是5.2版本之前方法
+
 ```python
 python -m vllm.entrypoints.openai.api_server --trust-remote-code --model Qwen/Qwen-7B
+```
+
+
+
+5.2版本之后可以使用这个
+
+```
+vllm serve Qwen/Qwen2.5-1.5B-Instruct
 ```
 
 可以使用`chat-template`参数覆盖原有的聊天模板
