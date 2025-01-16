@@ -171,3 +171,78 @@ source .bashrc
 ```
 
 [非root用户源码安装Tmux - 简书 (jianshu.com)](https://www.jianshu.com/p/f7f24b4b2625)
+
+
+
+### clash安装
+
+[Releases · doreamon-design/clash](https://github.com/doreamon-design/clash/releases)
+
+从这个网站去下载[clash_2.0.24_linux_amd64.tar.gz](https://github.com/doreamon-design/clash/releases/download/v2.0.24/clash_2.0.24_linux_amd64.tar.gz)
+
+1. 解压文件
+
+```text
+tar -xvf clash_2.0.24_linux_amd64.tar.gz
+```
+
+2. 将解压得到的clash移动到/usr/bin下
+
+```text
+mv clash /usr/local/bin/clash
+```
+
+3. 输入下列命令查看是否安装成功，成功则会输出版本号
+
+```text
+clash -v
+```
+
+
+
+使用windows clash首页中有 HOME Directory -> Open  Folder
+
+Country.mmdb上传到服务器
+
+然后到profiles文件下找到一个可用的yml文件，上传到服务器之后改名为config.yaml
+
+
+
+先在命令行中输入clash，然后运行clash，等待successful后ctrl+c退出程序
+
+，此时会在~/.config/clash中产生两个文件，将我们本地两个文件覆盖即可
+
+```sh
+cp config.yaml ~/.config/clash 
+cp Country.mmdb ~/.config/clash 
+```
+
+
+
+使用clash
+
+```
+vim ~/.bashrc
+
+proxy () {
+  export http_proxy="http://127.0.0.1:7890"
+  export https_proxy="http://127.0.0.1:7890"
+  export all_proxy="socks5://127.0.0.1:7890"
+  echo "Clash Proxy:ON"
+}
+
+noproxy () {
+  unset http_proxy
+  unset https_proxy
+  unset all_proxy
+  echo "Clash Proxy:OFF"
+}
+
+clash
+proxy
+```
+
+
+
+
+
